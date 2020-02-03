@@ -6,6 +6,6 @@ renta-car.iml
 .idea
 .settings
 .sts4-cache
-#src/main/resources/common.properties
+src/main/resources/application.properties
 /upload/*
 .project
