@@ -1,24 +1,41 @@
-Uses BOM for dependencies...
-application context is in classpath 
+Car Rental Management System
+Configuration
+Database
 
- Username/password are the same admin/admin & guest/guest
- 
-Also, you need to create  the database [entiremember] in MySql
+Make sure mysql server is running.
 
-Demonstrate basic Login:
-Comment out login details in security xml
-ALSO change welcome.jsp to access by /spring_security_login [ in Security Version3; version 4 uses /login]
-ALSO Make Sure NOT HTTPS
+Correct db configuraiton at resources/application.properties. Three field need to be corrected:
+spring.datasource.url=jdbc:mysql://localhost:3306/TheLast?useSSL=false
+spring.datasource.username=root
+spring.datasource.password=adminadmin
 
-REVIEW encryption in Service layer during login
-Credentials service
+Run application
+Using commandline:
+$ mvn spring-boot:run
 
-Demostrate WEB URL authorization
-Demostrate method based by commenting out URL based in XML
-[Server level more secure]
+Using eclipse:
 
-NOTE:  Authorization is on Add Member page
-ALSO ::  can use Method based in CONTROLLER
-                If global-method-security enabled in Dispatcher config
+Import project into eclipse
+Right click on project -> Maven -> Update Project ...
+Wait for downloading
+Run configuration:
+4.1 Ensure you have the Maven plugin installed into Eclipse.
+4.2 Click Run > Run Configurations > Maven Build > new launch configuration:
+4.3 Base directory: browse to the root of your project
+4.4 Goals: spring-boot::run.
+4.5 Click Apply then click Run.
 
-Demo Handler Interceptor...
+GIT
+Create local branch
+
+$ git branch dev
+$ git push -u origin dev
+(create local branch 'dev' & push it to remote)
+
+FF merge
+
+checkout dev commit #1 onto dev commit #2 onto dev checkout master merge dev to master
+
+3-bases merge
+
+checkout dev commit #1 onto dev commit #2 onto dev checkout master commit #3 onto master merge dev to master
