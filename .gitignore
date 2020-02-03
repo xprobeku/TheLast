@@ -1,0 +1,10 @@
+.DS_Store
+.classpath
+.settings/
+target/
+renta-car.iml
+.idea
+src/main/resources/application.properties
+src/main/resources/common.properties
+/upload/*
+
