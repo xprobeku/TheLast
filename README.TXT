@@ -5,7 +5,7 @@ Database
 Make sure mysql server is running.
 
 Correct db configuraiton at resources/application.properties. Three field need to be corrected:
-spring.datasource.url=jdbc:mysql://localhost:3306/TheLast?useSSL=false
+spring.datasource.url=jdbc:mysql://localhost:3306/thelast?useSSL=false
 spring.datasource.username=root
 spring.datasource.password=adminadmin
 

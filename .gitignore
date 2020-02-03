@@ -4,7 +4,8 @@
 target/
 renta-car.iml
 .idea
-src/main/resources/application.properties
-src/main/resources/common.properties
+.settings
+.sts4-cache
+#src/main/resources/common.properties
 /upload/*
-
+.project
