@@ -30,10 +30,9 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private CarRepository carRepository;
 
-
     @Override
     public List<Car> getAll() {
-        return carRepository.findAll();
+        return (List<Car> )carRepository.findAll();
     }
 
     @Override
