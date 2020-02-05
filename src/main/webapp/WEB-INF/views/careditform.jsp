@@ -43,8 +43,12 @@
                 </div>
             </div>
         </div>
-        <form:form method="POST" action="save">
+        <form:form method="POST" action="editsave">
             <table >
+                <tr>
+                    <td></td>
+                    <td><form:hidden path="id" /></td>
+                </tr>
                 <tr>
                     <td>Car Brand : </td>
                     <td>
@@ -69,10 +73,10 @@
                     <td>Seats :</td>
                     <td><form:input path="seats" /></td>
                 </tr>
-                    <%--                <tr>--%>
-                    <%--                    <td>User Name :</td>--%>
-                    <%--                    <td><form:hidden path="owner.id" value="1" /></td>--%>
-                    <%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td>User Name :</td>--%>
+<%--                    <td><form:input path="owner.userName" /></td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td>Pick up location :</td>
                     <td><form:input path="pickUpLocation" /></td>
@@ -81,21 +85,14 @@
                     <td>Description :</td>
                     <td><form:input path="description" /></td>
                 </tr>
-                    <%--                <tr>--%>
-                    <%--                    <td>Status :</td>--%>
-                    <%--                    <td>--%>
-                    <%--                        <select id="status" name="status" disabled>--%>
-                    <%--                            <option value="PENDING" selected>PENDING</option>--%>
-                    <%--                            <option value="APPROVED">APPROVED</option>--%>
-                    <%--                            <option value="DECLINED">DECLINED</option>--%>
-                    <%--                            <option value="RETURNED">RETURNED</option>--%>
-                    <%--                            <option value="OVERDUE">OVERDUE</option>--%>
-                    <%--                        </select>--%>
-                    <%--                    </td>--%>
-                    <%--                </tr>--%>
+                <tr>
+                    <td>Status :</td>
+                    <td><form:input path="status" disabled="true" /></td>
+                </tr>
+
                 <tr>
                     <td> </td>
-                    <td><input type="submit" value="Save" /></td>
+                    <td><input type="submit" value="Edit Save" /></td>
                 </tr>
             </table>
         </form:form>
@@ -103,60 +100,3 @@
 </div>
 </body>
 </html>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<h1>Edit Car</h1>
-<form:form method="POST" action="editsave">
-    <table >
-        <tr>
-            <td></td>
-            <td><form:hidden path="id" /></td>
-        </tr>
-        <tr>
-            <td>Car Brand : </td>
-            <td>
-                <form:select path="carBrand">
-                    <form:options items="${brandList}"></form:options>
-                </form:select>
-            </td>
-        </tr>
-        <tr>
-            <td>Model :</td>
-            <td><form:input path="model" /></td>
-        </tr>
-        <tr>
-            <td>Year :</td>
-            <td><form:input path="year" /></td>
-        </tr>
-        <tr>
-            <td>Price :</td>
-            <td><form:input path="price" /></td>
-        </tr>
-        <tr>
-            <td>Seats :</td>
-            <td><form:input path="seats" /></td>
-        </tr>
-        <tr>
-            <td>User Name :</td>
-            <td><form:input path="owner.userName" /></td>
-        </tr>
-        <tr>
-            <td>Pick up location :</td>
-            <td><form:input path="pickUpLocation" /></td>
-        </tr>
-        <tr>
-            <td>Description :</td>
-            <td><form:input path="description" /></td>
-        </tr>
-        <tr>
-            <td>Status :</td>
-            <td><form:input path="status" disabled/></td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td><input type="submit" value="Edit Save" /></td>
-        </tr>
-    </table>
-</form:form>
