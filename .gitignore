@@ -9,5 +9,4 @@ renta-car.iml
 src/main/resources/application.properties
 /upload/*
 .project
-pom.xml
 TheLasTCarRental.iml
