@@ -37,8 +37,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> getAllCarByOwner(long userId) {
-        List<Car> cars = carRepository.findByOwnerId(userId);
-        return cars;
+        return carRepository.findByOwnerId(userId);
     }
 
     @Override
@@ -60,6 +59,20 @@ public class CarServiceImpl implements CarService {
     @Override
     public void deleteCarById(Long carId) {
         carRepository.delete(carId);
+    }
+
+    @Override
+    public List<String> getBrands() {
+        List<String> brandList = new ArrayList<String>();
+        brandList.add("BMW");
+        brandList.add("BENZ");
+        brandList.add("FORD");
+        brandList.add("HYUNDAI");
+        brandList.add("LEXUS");
+        brandList.add("NISSAN");
+        brandList.add("TOYOTA");
+        brandList.add("VOLKSWAGEN");
+        return brandList;
     }
 
 //    @Override

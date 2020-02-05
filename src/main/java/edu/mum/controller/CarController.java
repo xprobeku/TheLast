@@ -31,13 +31,6 @@ public class CarController {
 
     }
 
-    @RequestMapping(value="/cars", method = RequestMethod.GET)
-    public String getCars(Model model){
-        System.out.println("ALl the cars");
-        return "cars";
-
-    }
-
     @RequestMapping(value="/save", method=RequestMethod.POST)
     public String save(@ModelAttribute("cars") Car car){
         dao.save(car);
@@ -48,7 +41,7 @@ public class CarController {
     public String viewCar(Model model){
         List<Car> list = dao.getAll();
         model.addAttribute("list", list);
-
+        System.out.println(list.get(0));
         return "viewcar";
     }
 
