@@ -1,0 +1,1 @@
+<p>&copy; TheLasT team 2020</p>
