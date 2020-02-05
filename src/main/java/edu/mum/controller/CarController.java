@@ -17,15 +17,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class CarController {
     @Autowired
-    CarService dao;
+    CarService carService;
 
     @RequestMapping("/carform")
     public String showCars(Model model){
+        model.addAttribute("brandList", carService.getBrands());
         model.addAttribute("command", new Car());
         return "carform";
 
@@ -33,35 +35,36 @@ public class CarController {
 
     @RequestMapping(value="/save", method=RequestMethod.POST)
     public String save(@ModelAttribute("cars") Car car){
-        dao.save(car);
+        car.setAvailable(true);
+        car.setStatus("PENDING");
+        carService.save(car);
         return "redirect:/viewcar";
     }
 
-    @RequestMapping(value="/viewcar")
+    @RequestMapping(value="/viewcar", method=RequestMethod.GET)
     public String viewCar(Model model){
-        List<Car> list = dao.getAll();
+        List<Car> list = carService.getAll();
         model.addAttribute("list", list);
-        System.out.println(list.get(0));
         return "viewcar";
     }
 
-    @RequestMapping(value="/editcar/{id}")
+    @RequestMapping(value="/editcar/{id}", method=RequestMethod.GET)
     public String edit(@PathVariable Long id, Model model){
-        Car car = dao.getById(id);
+        Car car = carService.getById(id);
+        model.addAttribute("brandList", carService.getBrands());
         model.addAttribute("command", car);
         return "careditform";
     }
 
     @RequestMapping(value="/editsave", method = RequestMethod.POST)
     public String editSave(@ModelAttribute("car")Car car){
-        dao.updateCar(car);
-        return "redirect:viewcar";
+        carService.updateCar(car);
+        return "redirect:/viewcar";
     }
 
     @RequestMapping(value="/deletecar/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable Long id){
-        dao.deleteCarById(id);
-        return "redirect:/viewcar";
+        carService.deleteCarById(id);
+        return "viewcar";
     }
-
 }

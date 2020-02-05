@@ -62,7 +62,7 @@
                     <td>${car.description}</td>
                     <td><span class="status text-success">&bull;</span> ${car.status}</td>
                     <td>
-                        <a href="${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
+                        <a href="editcar/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
                     </td>
 <%--                    <td>--%>
 <%--                        <a href="editcar/${car.id}" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>--%>

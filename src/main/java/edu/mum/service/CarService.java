@@ -13,5 +13,7 @@ public interface CarService {
     void save(Car car);
     void updateCar(Car car);
     void deleteCarById(Long carId);
+    List<String> getBrands();
 //    List<Car> searchCars(String searchString);
+
 }
