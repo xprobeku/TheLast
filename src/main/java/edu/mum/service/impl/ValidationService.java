@@ -14,7 +14,7 @@ public class ValidationService {
      **/
 
     public boolean doValidatePassword(String password) {
-        return !password.isBlank() && password.length() > 8;
+        return !password.isEmpty() && password.length() > 8;
     }
 
 }
