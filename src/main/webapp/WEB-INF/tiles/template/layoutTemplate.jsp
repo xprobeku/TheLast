@@ -26,7 +26,7 @@
 			<ul class="nav nav-pills pull-right">
 				<tiles:insertAttribute name="navigation" />
 			</ul>
-			<h3 class="text-muted">Web Store</h3>
+			<h3 class="text-muted">CAR RENTAL WEBSITE</h3>
 		</div>
 
 

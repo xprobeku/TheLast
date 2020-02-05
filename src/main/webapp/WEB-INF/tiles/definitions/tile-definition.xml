@@ -31,11 +31,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
 	</definition>
 
-	<definition name="products" extends="baseLayout">
-		<put-attribute name="title" value="Products" />
-		<put-attribute name="heading" value="Products" />
+	<definition name="cars" extends="baseLayout">
+		<put-attribute name="title" value="Cars" />
+		<put-attribute name="heading" value="Cars" />
 		<put-attribute name="tagline" value="Available Products" />
-		<put-attribute name="body" value="/WEB-INF/views/products.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/cars.jsp" />
 	</definition>
 
 	<definition name="product" extends="baseLayout">
