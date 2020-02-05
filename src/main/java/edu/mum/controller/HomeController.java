@@ -9,6 +9,7 @@ public class HomeController {
 
     @RequestMapping(value = {"/", "/index"} , method = RequestMethod.GET)
     public String index() {
+        String str = "uya";
         return "welcome";
     }
 
