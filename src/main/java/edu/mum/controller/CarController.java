@@ -41,6 +41,7 @@ public class CarController {
     public String viewCar(Model model){
         List<Car> list = dao.getAll();
         model.addAttribute("list", list);
+        System.out.println(list.get(0));
         return "viewcar";
     }
 
