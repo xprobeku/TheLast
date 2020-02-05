@@ -26,24 +26,25 @@
 			 	</div>
 			  	<div class="panel-body">
 			  	<c:if test="${not empty error}">
+					${error}
 					<div class="alert alert-danger">
 						<spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br />
 					</div>
 				</c:if>
-			    	<form action="<spring:url value="/login"></spring:url>" method="post">
-                    <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form:input-large" placeholder="User Name" name='username' type="text">
-			    		</div>
-			    		<div class="form-group">
-			    			<input class=" form:input-large" placeholder="Password" name='password'  type="password" value="">
-			    		</div>
-		    			<div class="form-group">
-			    			<input type='checkbox' name="keepMe"/>Remember Me? <br/>	
-			    		</div>
-			    		<input class="btn btn-lg btn-success btn-mini" type="submit" value="Login">
-			    	</fieldset>
-						<security:csrfInput />
+			    	<form action="signin" method="post">
+						<fieldset>
+							<div class="form-group">
+								<input class="form:input-large" placeholder="User Name" type="text" name="userName">
+							</div>
+							<div class="form-group">
+								<input class=" form:input-large" placeholder="Password" type="password" name="password">
+							</div>
+							<div class="form-group">
+								<input type='checkbox' name="keepMe"/>Remember Me? <br/>
+							</div>
+							<input class="btn btn-lg btn-success btn-mini" type="submit" value="Login">
+						</fieldset>
+							<security:csrfInput />
 			      	</form>
 			    </div>
 			</div>

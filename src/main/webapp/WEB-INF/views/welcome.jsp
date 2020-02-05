@@ -24,6 +24,7 @@
  				  <security:authorize access="isAnonymous()">
   
     					<a href="<spring:url value='/login' />" class="btn btn-default pull-right"> Login</a>
+					 	 <a href="<spring:url value='/signup' />" class="btn btn-default pull-right">Sign Up</a>
 
 				</security:authorize>
 		
@@ -34,8 +35,6 @@
 	 			<div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
 		</div>	
 	</section>
-<%-- 					<p> ${testOrder} </p>
-				<p> ${homeTestOrder} </p> --%>
-	
+
 </body>
 </html>

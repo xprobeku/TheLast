@@ -164,7 +164,10 @@ public class User {
 	            ", lastName='" + lastName + '\'' +
 	            ", email='" + email + '\'' +
 	            ", password='" + "*********" + '\'' +
-	            ", roles=" + roles +
+				", roles=" + roles +
+				", createDate=" + createDate +
+				", phone=" + phone +
+				", status=" + status +
 	            '}';
 	}
 
