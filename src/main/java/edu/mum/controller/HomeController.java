@@ -26,11 +26,6 @@ public class HomeController {
         return "welcome";
     }
 
-    @RequestMapping(value = "/cars" , method = RequestMethod.GET)
-    public String manageCar() {
-        return "cars";
-    }
-
     @RequestMapping(value = {"/login"} , method = RequestMethod.GET)
     public String login() {
         return "login";
