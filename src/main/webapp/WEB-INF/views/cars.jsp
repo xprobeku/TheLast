@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: edy
-  Date: 2/4/20
+  Date: 2/3/20
   Time: 7:46 PM
   To change this template use File | Settings | File Templates.
 --%>
@@ -105,8 +105,8 @@
         table.table td a:hover {
             color: #2196F3;
         }
-        table.table td a.settings {
-            color: #2196F3;
+        table.table td a.approve {
+            color: #10c469;
         }
         table.table td a.delete {
             color: #F44336;
@@ -176,11 +176,6 @@
             font-size: 13px;
         }
     </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body>
 <div class="container">
@@ -211,8 +206,8 @@
                 <td>Admin</td>
                 <td><span class="status text-success">&bull;</span> Active</td>
                 <td>
-                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                    <a href="#" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>
+                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>
                 </td>
             </tr>
             <tr>
@@ -222,8 +217,8 @@
                 <td>Publisher</td>
                 <td><span class="status text-success">&bull;</span> Active</td>
                 <td>
-                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                    <a href="#" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>
+                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>
                 </td>
             </tr>
             <tr>
@@ -233,8 +228,8 @@
                 <td>Publisher</td>
                 <td><span class="status text-danger">&bull;</span> Suspended</td>
                 <td>
-                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                    <a href="#" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>
+                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>
                 </td>
             </tr>
             <tr>
@@ -244,8 +239,8 @@
                 <td>Reviewer</td>
                 <td><span class="status text-success">&bull;</span> Active</td>
                 <td>
-                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                    <a href="#" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>
+                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>
                 </td>
             </tr>
             <tr>
@@ -255,8 +250,8 @@
                 <td>Moderator</td>
                 <td><span class="status text-warning">&bull;</span> Inactive</td>
                 <td>
-                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                    <a href="#" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>
+                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>
                 </td>
             </tr>
             </tbody>
