@@ -40,7 +40,7 @@
                 <th>Car</th>
                 <th>Status</th>
                 <th>Created Date</th>
-                <c:if test="${rental.status.equals('PENDING') }">
+                <c:if test="${rental.status.toString().equals('APPROVED') }">
                     <th>Approval Date</th>
                     <th>Expected Date</th>
                     <th>Pickup Date</th>
@@ -55,7 +55,7 @@
                     <td>${rental.car.carBrand}</td>
                     <td>${rental.status}</td>
                     <td>${rental.createDate}</td>
-                    <c:if test="${rental.status.equals('APPROVED') }">
+                    <c:if test="${rental.status.toString().equals('APPROVED') }">
                     <td>${rental.approvalDate}</td>
                     <td>${rental.expectedDate}</td>
                     <td>${rental.pickUpDate}</td>

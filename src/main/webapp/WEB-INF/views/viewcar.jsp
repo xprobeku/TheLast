@@ -8,8 +8,6 @@
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <html lang="en">
 <head>
@@ -102,6 +100,7 @@ h1 { font-size: 1.5em; margin: 10px; }
                     <td>${car.description}</td>
                     <td><span class="status text-success">&bull;</span> ${car.status}</td>
                     <td><fieldset class="rating">
+                    <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 					    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
 					    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
 					    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
