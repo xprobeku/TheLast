@@ -5,10 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 
 @Entity
 public class Car {
@@ -21,7 +18,6 @@ public class Car {
     @NotEmpty
     private String model=null;
 
-//    @NotNull(message = "Please provide year")
     @DateTimeFormat(pattern="yyyy")
     private Integer year;
 
@@ -39,10 +35,10 @@ public class Car {
     @NotBlank(message = "Please provide description")
     private String description;
 
-    @NotBlank(message = "Please provide status")
+//    @NotBlank(message = "Please provide status")
     private String status;
 
-    @NotNull
+//    @NotNull
     private Boolean isAvailable;
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

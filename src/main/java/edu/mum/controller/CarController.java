@@ -27,9 +27,11 @@ public class CarController {
     CarService carService;
 
     @RequestMapping("/carform")
-    public String showCars(@ModelAttribute("car")Car car){
+    public String showCars(@ModelAttribute("car")Car car, Model model){
+        model.addAttribute("brandList", carService.getBrands());
+        car.setAvailable(true);
+        car.setStatus("PENDING");
         return "carform";
-
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)
@@ -59,8 +61,10 @@ public class CarController {
         return "careditform";
     }
 
-    @RequestMapping(value="/editcar/editsave", method = RequestMethod.POST)
+    @RequestMapping(value="/editsave", method = RequestMethod.POST)
     public String editSave(@ModelAttribute("car")Car car){
+//        if(result.hasErrors())
+//            return "/editcar/{id}";
         //change after session complete * ADMIN can change
         car.setAvailable(true);
         car.setStatus("PENDING");
