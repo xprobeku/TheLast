@@ -84,6 +84,10 @@
                     <td>Description :</td>
                     <td><form:input path="description" /></td>
                 </tr>
+                <tr>
+                    <td>Description :</td>
+                    <td><form:input path="cover"  type="file" /></td>
+                </tr>
 <%--                <tr>--%>
 <%--                    <td>Status :</td>--%>
 <%--                    <td>--%>

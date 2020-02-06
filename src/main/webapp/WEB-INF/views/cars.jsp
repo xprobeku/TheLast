@@ -24,8 +24,10 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
-    <script src="<c:url value="/resources/js/jquery.autocomplete.min.js" />"></script>
-    <script src="<c:url value="/resources/js/jquery.1.10.2.min.js" />"></script>
+
+    <script type="text/javascript" src="<spring:url value="/resources/js/jquery.autocomplete.min.js"/>"></script>
+
+    <script type="text/javascript" src="<spring:url value="/resources/js/jquery.1.10.2.min.js"/>"></script>
 
 </head>
 <body>
@@ -39,9 +41,7 @@
 
 <script>
     $(document).ready(function() {
-
         alert(1);
-
         $('#search').autocomplete({
             serviceUrl: '${pageContext.request.contextPath}/getTags',
             paramName: "tagName",
