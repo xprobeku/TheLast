@@ -1,8 +1,10 @@
 package edu.mum.repository;
 
 import edu.mum.domain.Car;
+import edu.mum.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,5 +21,8 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     );
     List<Car> findAllByPriceEquals(Double price);
     List<Car> findAllBySeatsEqualsOrYearEquals(Integer seats, Integer year);
+
+    @Query("SELECT c FROM Car c WHERE (c.carBrand   = :searchvalue or c.model   = :searchvalue  or c.price   = :searchvalue)")
+    List<Car> findCars(@Param("searchvalue") String searchvalue);
 
 }

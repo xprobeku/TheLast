@@ -22,7 +22,7 @@ public class CarRest {
     List<Tag> data = new ArrayList<Tag>();
 
     CarRest() {
-        // init data for testing
+
         data.add(new Tag(1, "TOYOTA"));
         data.add(new Tag(2, "AUDIO"));
         data.add(new Tag(3, "FORD"));
