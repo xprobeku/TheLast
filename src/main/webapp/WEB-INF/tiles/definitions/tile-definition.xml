@@ -37,11 +37,13 @@
 		<put-attribute name="tagline" value="Rents" />
 		<put-attribute name="body" value="/WEB-INF/views/rental.jsp" />
 	</definition>
+	
 	<definition name="rentals" extends="baseLayout">
 		<put-attribute name="title" value="" />
 		<put-attribute name="heading" value="" />
 		<put-attribute name="tagline" value="All Rents" />
 		<put-attribute name="body" value="/WEB-INF/views/rentals.jsp" />
+		</definition>
 
 	<definition name="viewcar" extends="baseLayout">
 		<put-attribute name="title" value="Cars" />
