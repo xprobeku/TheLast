@@ -6,6 +6,7 @@ import edu.mum.domain.User;
 import edu.mum.exception.NotFoundException;
 import edu.mum.exception.RestrictionException;
 import edu.mum.exception.ValidationException;
+import edu.mum.service.UserService;
 import edu.mum.service.auth.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,17 +33,20 @@ public class AuthController {
     /**
      * do.Login
      **/
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public String doSignIn(@RequestParam(value = "userName") String userName,
                            @RequestParam(value = "password") String password,Model model) {
-        try {
-            model.addAttribute(service.doSignIn(userName, password));
-            return "/welcome";
-        }catch (Exception ex) {
-            model.addAttribute("error", ex.getMessage());
+            String res = service.doSignIn(userName, password);
+            if(res.equals("Access")){
+                model.addAttribute("user" , userService.getByUserName(userName));
+                return "/welcome";
+            }
+        System.out.println(res);
+            model.addAttribute("error", res);
             return "/login";
-        }
     }
 
 //    /**
@@ -99,24 +103,18 @@ public class AuthController {
      **/
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String doSignUp(@Valid @ModelAttribute("userSignup") User user, BindingResult bindingResult) {
+    public String doSignUp(@Valid @ModelAttribute("userSignup") User user, BindingResult bindingResult, Model model) {
         user.setCreateDate(LocalDateTime.now());
         List<Role> roles = new ArrayList<>();
         if(bindingResult.hasErrors()){
             System.out.println("HAS ERROR");
             return "signup";
         }
-        try {
-            System.out.println("signUP");
+           String res =  service.doSignUp(user);
+            if(res.equals("Saved")) return "welcome";
 
-            service.doSignUp(user);
-            return "welcome";
-        } catch (Exception ex) {
-            System.out.println("EXCEPTION " + ex.getMessage());
-
-
+            model.addAttribute("error", res);
             return "signup";
-        }
     }
 
     /**

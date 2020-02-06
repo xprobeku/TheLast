@@ -14,6 +14,7 @@ public interface UserService {
 
     public Optional<User> getByUserId(Long id);
 
+    public User getByUserName(String userName);
 	void updateUserStatus(User user);
     void deleteUserById(long userId);
 }
