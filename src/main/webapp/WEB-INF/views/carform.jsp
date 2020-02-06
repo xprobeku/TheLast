@@ -36,6 +36,7 @@
             </div>
         </div>
         <form:form method="POST" action="save">
+            <form:errors path="*" cssClass="alert alert-danger" element="div"/>
             <table >
                 <tr>
                     <td>Car Brand : </td>
@@ -47,7 +48,8 @@
                 </tr>
                 <tr>
                     <td>Model :</td>
-                    <td><form:input path="model" /></td>
+                    <td><form:input path="model" />
+                        <form:errors path="model" cssClass="text-danger"/></td>
                 </tr>
                 <tr>
                     <td>Year :</td>
