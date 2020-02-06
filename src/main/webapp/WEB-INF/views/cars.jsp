@@ -33,14 +33,14 @@
 <div>
     <input type="text"  id="search" value="">
     <span>
-	  <button id="button-id" type="button">Sea]rch</button>
+	  <button id="button-id" type="button">Search</button>
 	</span>
 </div>
 
 <script>
     $(document).ready(function() {
 
-        alert(1);
+        //alert(1);
 
         $('#search').autocomplete({
             serviceUrl: '${pageContext.request.contextPath}/getTags',

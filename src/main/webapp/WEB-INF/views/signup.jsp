@@ -7,7 +7,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Products</title>
+<title>Add new user</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(document).ready(function() {  
+            $("#roles").removeAttr("multiple");
+    });
+</script> 
+	<style type="text/css">
+.panel.panel-default {
+    width: 517px;
+    margin: 0 auto;
+}
+form#userSignup {
+    width: 500px;
+}
+.col-lg-10 {
+    width: 70% !important;
+}
+select#roles {
+    height: 25px;
+}
+label.control-label.col-lg-2.col-lg-2 {
+    width: 125px;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -82,13 +106,20 @@
 									</div>
 								</div>
 							</div>
-							<form:select path="roles">
-								<form:option value="ADMIN"> ADMIN</form:option>
-								<form:option value="OWNER"> OWNER</form:option>
-								<form:option value="RENTER"> RENTER</form:option>
-							</form:select>
-							<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-
+							<div class="form-group">
+								<label class="control-label col-lg-2" for="roles">Role</label>
+								<div class="col-lg-10">
+									<div class="form:input-prepend">
+										<form:select path="roles" id="roles">
+											<form:option value="ADMIN"> ADMIN</form:option>
+											<form:option value="OWNER"> OWNER</form:option>
+											<form:option value="RENTER"> RENTER</form:option>
+										</form:select>
+								<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+									</div>
+								</div>
+							</div>
+							
 							<div class="form-group">
 								<div class="col-lg-offset-2 col-lg-10">
 									<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
