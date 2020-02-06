@@ -10,7 +10,6 @@
 <title>Products</title>
 </head>
 <body>
-
 <div class="container">
     <div class="row">
 		<div class="col-md-4 col-md-offset-4">
@@ -84,8 +83,9 @@
 								</div>
 							</div>
 							<form:select path="roles">
-								<form:option value="NONE"> --SELECT--</form:option>
-								<form:options items="${roles}"></form:options>
+								<form:option value="ADMIN"> ADMIN</form:option>
+								<form:option value="OWNER"> OWNER</form:option>
+								<form:option value="RENTER"> RENTER</form:option>
 							</form:select>
 							<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 

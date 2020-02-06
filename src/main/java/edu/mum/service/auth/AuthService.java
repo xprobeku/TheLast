@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+
 @Service
 public class AuthService {
 
@@ -42,23 +43,23 @@ public class AuthService {
      * do.Login
      **/
 
-    public User doSignIn(String username, String password) throws ValidationException, NotFoundException, RestrictionException {
+    public String doSignIn(String username, String password) {
+        System.out.println("1" + " " + userRepository.findPasswordByUserName(username));
+        System.out.println(passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)));
         if (validationService.doValidatePassword(password)) {
-            if (userRepository.findByUserNameIs(username)) {
-                try {
-                    if (userRepository.findPasswordByUserName(password).equals(password))
-                        return this.doGenerate(username);
+            System.out.println("1");
+            if (userRepository.findByUserName(username) != null) {
+                System.out.println("1");
+                if (passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)))
+                       return "Access";
                     else {
-                        throw new RestrictionException("username or password doesnt match");
+                        return ("username or password doesnt match");
                     }
-                } catch (BadCredentialsException ex) {
-                    throw new RestrictionException("password doesnt match");
-                }
             } else {
-                throw new NotFoundException("User not found");
+               return ("User not found");
             }
         } else {
-            throw new ValidationException("Password length doesnt match");
+            return ("Password length doesnt match");
         }
     }
 
@@ -67,43 +68,23 @@ public class AuthService {
      * do.Sign.Up
      **/
 
-    public void doSignUp(User user) throws CustomException, ValidationException {
-        userRepository.save(user);
-        //        try {
-//            System.out.println("1");
-//            if (validationService.doValidatePassword(user.getPassword())) {
-//                System.out.println("1");
-//                if (!userRepository.findByUserNameIs(user.getUserName())) {
-//                    System.out.println("1");
-//                    if (!userRepository.findByEmailIs(user.getEmail())) {
-//                        System.out.println("ORSNU");
-//                        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//                        userRepository.save(user);
-//                        return true;
-//                    } else {
-//                        System.out.println("Email is already in use");
-//
-//                        throw new CustomException("Email is already in use", HttpStatus.UNPROCESSABLE_ENTITY);
-//                    }
-//                } else {
-//                    System.out.println("Username is already in use");
-//
-//                    throw new CustomException("Username is already in use", HttpStatus.UNPROCESSABLE_ENTITY);
-//                }
-//            } else {
-//                System.out.println("Uassword length doesnt match");
-//                throw new ValidationException("password length doesnt match");
-//            }
-//        } catch (ValidationException ex) {
-//            System.out.println(ex.getMessage());
-//            throw ex;
-//        } catch (CustomException ex) {
-//            System.out.println(ex.getMessage());
-//            throw ex;
-//        } catch (Exception ex) {
-//            System.out.println("Shaaa shaa gg end reporrt me " + ex.getMessage() + " " + ex.toString());
-//            throw ex;
-//        }
+    public String doSignUp(User user) {
+
+        if (validationService.doValidatePassword(user.getPassword())) {
+            if (userRepository.findByUserName(user.getUserName()) == null) {
+                if (userRepository.findByEmail(user.getEmail()) == null) {
+                    user.setPassword(passwordEncoder.encode(user.getPassword()));
+                    userRepository.save(user);
+                    return "Saved";
+                } else {
+                    return ("Email is already in use");
+                }
+            } else {
+                return ("Username is already in use");
+            }
+        } else {
+            return ("password length doesnt match");
+        }
     }
 
     /**
@@ -117,14 +98,5 @@ public class AuthService {
      * do.Generate.Token
      **/
 
-    private User doGenerate(String username) {
-        try {
-            //removing password from returning user object
-//            user.setPassword(null);
-            return userRepository.findByUserName(username);
-        } catch (Exception ex) {
-            throw ex;
-        }
-    }
 
 }

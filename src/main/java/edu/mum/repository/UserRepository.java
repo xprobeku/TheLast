@@ -14,6 +14,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByUserName(String userName);
+	User findByEmail(String email);
 	Optional<User> findById(Long id);
 	// Demo usage of custom query
 	@Query("SELECT u FROM User u WHERE (u.userName  = 'admin')")
@@ -24,10 +25,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	List<User> findByRoles(Role role);
 
 	List<User> findAll();
-
-	Boolean findByUserNameIs(String userName);
-
-	Boolean findByEmailIs(String userName);
 
 	Boolean findByUserNameIsAndPasswordIs(String userName, String password);
 	@Query("SELECT u.password FROM User u WHERE u.userName = :userName")
