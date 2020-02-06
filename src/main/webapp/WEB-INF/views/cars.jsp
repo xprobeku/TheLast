@@ -85,7 +85,7 @@ h1 { font-size: 1.5em; margin: 10px; }
     $(document).ready(function() {
 
         //alert(1);
-
+        // TODO 9 : AJAX Call Auto fill for text
         $('#search').autocomplete({
             serviceUrl: '${pageContext.request.contextPath}/getTags',
             paramName: "tagName",
@@ -93,7 +93,7 @@ h1 { font-size: 1.5em; margin: 10px; }
             transformResult: function(response) {
 
                 return {
-                    //must convert json to javascript object before process
+
                     suggestions: $.map($.parseJSON(response), function(item) {
 
                         return { value: item.tagName, data: item.id };

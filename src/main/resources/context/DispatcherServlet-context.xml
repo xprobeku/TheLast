@@ -23,6 +23,7 @@
 		<property name="order" value="2" />
 	</bean>
 
+	<!-- TODO 2 :  tilesViewResolver, -->
 	<bean id="tilesViewResolver"   class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<property name="order" value="-2" />
@@ -49,6 +50,7 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+	<!-- TODO 1 :  Tiles Configurer, -->
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>

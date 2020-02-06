@@ -2,7 +2,7 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
-<!-- TODO 1 :  Templates, -->
+<!-- TODO 3:  Templates, Navigation, header, fooder, etc-->
 <tiles-definitions>
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/layoutTemplate.jsp">
 		<put-attribute name="title" value="Sample Title" />
