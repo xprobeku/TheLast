@@ -12,6 +12,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
     private String carBrand;
 
     @NotBlank(message = "{Not.Null}")
