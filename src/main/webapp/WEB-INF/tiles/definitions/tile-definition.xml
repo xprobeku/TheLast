@@ -2,8 +2,8 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
+<!-- TODO 1 :  Templates, -->
 <tiles-definitions>
-
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/layoutTemplate.jsp">
 		<put-attribute name="title" value="Sample Title" />
 		<put-attribute name="heading" value="" />
@@ -15,49 +15,55 @@
 
 	<definition name="welcome" extends="baseLayout">
 		<put-attribute name="title" value="...:::The LasT:::..." />
-		<put-attribute name="heading" value="Internationalization" />
+		<put-attribute name="heading" value="Welcome to Car Renting" />
 		<put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
 	</definition>
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="title" value="Login" />
-		<put-attribute name="heading" value="Login" />
+		<put-attribute name="heading" value="" />
 		<put-attribute name="tagline" value="Enter your Credentials" />
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
 	<definition name="signup" extends="baseLayout">
 		<put-attribute name="title" value="Signup" />
-		<put-attribute name="heading" value="Signup" />
+		<put-attribute name="heading" value="" />
 		<put-attribute name="tagline" value="Sign up " />
 		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
 	</definition>
+	
+	<definition name="rental" extends="baseLayout">
+		<put-attribute name="title" value="Rents" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="Rents" />
+		<put-attribute name="body" value="/WEB-INF/views/rental.jsp" />
+	</definition>
+	
+	<definition name="rentals" extends="baseLayout">
+		<put-attribute name="title" value="" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="All Rents" />
+		<put-attribute name="body" value="/WEB-INF/views/rentals.jsp" />
+		</definition>
 
 	<definition name="viewcar" extends="baseLayout">
 		<put-attribute name="title" value="Cars" />
-		<put-attribute name="heading" value="Cars" />
+		<put-attribute name="heading" value="" />
 		<put-attribute name="tagline" value="Available cars" />
 		<put-attribute name="body" value="/WEB-INF/views/viewcar.jsp" />
 	</definition>
 
 	<definition name="cars" extends="baseLayout">
 		<put-attribute name="title" value="Manage car" />
-		<put-attribute name="heading" value="Manage car" />
+		<put-attribute name="heading" value="" />
 		<put-attribute name="tagline" value="Manage car" />
 		<put-attribute name="body" value="/WEB-INF/views/cars.jsp" />
 	</definition>
-
-	<definition name="addProduct" extends="baseLayout">
-		<put-attribute name="title" value="Products" />
-		<put-attribute name="heading" value="Products" />
-		<put-attribute name="tagline" value="Product" />
-		<put-attribute name="body" value="/WEB-INF/views/addProduct.jsp" />
-	</definition>
-
-
-
-
-	<definition name="productNotFound" extends="baseLayout">
-		<put-attribute name="title" value="Product Exception" />
-		<put-attribute name="body" value="/WEB-INF/views/productNotFound.jsp" />
+	
+	<definition name="carform" extends="baseLayout">
+		<put-attribute name="title" value="New Car" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="Add new car" />
+		<put-attribute name="body" value="/WEB-INF/views/carform.jsp" />
 	</definition>
 
 </tiles-definitions>

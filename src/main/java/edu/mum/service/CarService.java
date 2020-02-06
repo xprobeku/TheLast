@@ -14,6 +14,6 @@ public interface CarService {
     void updateCar(Car car);
     void deleteCarById(Long carId);
     List<String> getBrands();
-//    List<Car> searchCars(String searchString);
+    List<Car> searchCars(String searchString);
 
 }

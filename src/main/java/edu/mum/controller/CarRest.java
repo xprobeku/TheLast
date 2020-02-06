@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
- public class CarRest {
+public class CarRest {
 
     @Autowired
     CarService carService;
@@ -23,14 +23,14 @@ import java.util.List;
 
     CarRest() {
         // init data for testing
-        data.add(new Tag(1, "ruby"));
-        data.add(new Tag(2, "rails"));
-        data.add(new Tag(3, "c / c++"));
-        data.add(new Tag(4, ".net"));
-        data.add(new Tag(5, "python"));
-        data.add(new Tag(6, "java"));
-        data.add(new Tag(7, "javascript"));
-        data.add(new Tag(8, "jscript"));
+        data.add(new Tag(1, "TOYOTA"));
+        data.add(new Tag(2, "AUDIO"));
+        data.add(new Tag(3, "FORD"));
+        data.add(new Tag(4, "Honda"));
+        data.add(new Tag(5, "BMW "));
+        data.add(new Tag(6, "Nissan"));
+        data.add(new Tag(7, "Lexus"));
+        data.add(new Tag(8, "Volvo"));
 
     }
 
@@ -38,16 +38,15 @@ import java.util.List;
     public @ResponseBody
     List<Tag> getTags(@RequestParam String tagName) {
 
-        System.out.println(tagName + "((((((((((((((((((((");
+        System.out.println("tag name" + tagName );
 
-        return simulateSearchResult(tagName);
+        return SearchResult(tagName);
     }
 
-    private List<Tag> simulateSearchResult(String tagName) {
+    private List<Tag> SearchResult(String tagName) {
 
         List<Tag> result = new ArrayList<Tag>();
 
-        // iterate a list and filter by tagName
         for (Tag tag : data) {
             if (tag.getTagName().contains(tagName)) {
                 result.add(tag);
@@ -56,7 +55,6 @@ import java.util.List;
 
         return result;
     }
-
 
     @RequestMapping(method=RequestMethod.POST)
     public String post(String q, Model model) {
@@ -71,14 +69,12 @@ import java.util.List;
         System.out.println(carService.getAll().size());
         return  carService.getAll().toString();
   }
-//    @RequestMapping(value = "/rest/cars/list", method = RequestMethod.GET)
-//    public @ResponseBody List<Car>  listAll(Model model)
-//    {
-//        System.out.println("GET ---- lIST");
-//        System.out.println(carService.getAll().size());
-//        return  carService.getAll();
-//    }
 
+    @RequestMapping(value = "/rest/cars/list/{modelname}", method = RequestMethod.GET)
+    public @ResponseBody String  findByModel(@PathVariable("modelname") String modelname, Model model)
+    {
+        return  carService.searchCars(modelname).toString();
+    }
 
     @RequestMapping(value="/cars", method=RequestMethod.GET)
     public String getCars(Model model){
@@ -87,19 +83,5 @@ import java.util.List;
         return "cars";
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateCar(@Valid @RequestBody Car car) {
-        carService.updateCar(car);
-    }
-
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void saveCar(@Valid @RequestBody Car car) {
-        carService.save(car);
-    }
-
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void savePerson(@Valid @RequestBody Car car) {
-        carService.deleteCarById(car.getId());
-    }
 
 }

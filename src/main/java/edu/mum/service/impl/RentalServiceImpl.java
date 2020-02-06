@@ -1,21 +1,20 @@
 package edu.mum.service.impl;
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.mum.domain.Car;
 import edu.mum.domain.Rental;
 import edu.mum.domain.RentalStatus;
 import edu.mum.repository.RentalRepository;
 import edu.mum.service.CarService;
 import edu.mum.service.RentalService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
+import edu.mum.service.UserService;
 
 @Service
 public class RentalServiceImpl implements RentalService {
@@ -25,6 +24,9 @@ public class RentalServiceImpl implements RentalService {
 
     @Autowired
     CarService carService;
+
+    @Autowired
+    UserService userService;
 
     @Override
     public List<Rental> searchRental(String searchString) {
@@ -52,8 +54,19 @@ public class RentalServiceImpl implements RentalService {
     }
 
     @Override
-    public void createRental(Rental rental) {
+    public void createRental(Rental rental, Long carId) {
+
+        Car car = carService.getById(carId);
+        if(car.getAvailable()!= false)
+        {
+        car.setAvailable(false);
+        carService.save(car);
+        rental.setCreateDate(LocalDateTime.now());
+        rental.setCar(car);
+        rental.setStatus(RentalStatus.PENDING);
         rentalRepository.save(rental);
+        }
+        
     }
 
     @Override
@@ -67,6 +80,7 @@ public class RentalServiceImpl implements RentalService {
     @Override
     public void rentalFinish(long rentalId) {
         Rental rental = rentalRepository.findOne(rentalId);
+        setCarAvilablity(rental, true);
         rental.setReturnDate(LocalDate.now());
         rental.setStatus(RentalStatus.RETURNED);
         rentalRepository.save(rental);
@@ -75,10 +89,18 @@ public class RentalServiceImpl implements RentalService {
     @Override
     public void rentalReject(long rentalId, String rejectDesc) {
         Rental rental = rentalRepository.findOne(rentalId);
+        setCarAvilablity(rental, true);
         rental.setDeclinedDate(LocalDate.now());
         rental.setDeclineDesc(rejectDesc);
         rental.setStatus(RentalStatus.DECLINED);
         rentalRepository.save(rental);
+    }
+
+    void setCarAvilablity(Rental rental, Boolean status)
+    {
+        Car car = rental.getCar();
+        car.setAvailable(status);
+        carService.updateCar(car);
     }
 }
 

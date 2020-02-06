@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +16,6 @@
 
 <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
 	<!-- Data Tables -->
-
-	<link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
-
-
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="<spring:url value="/resource/js/ajax.js"/>"></script>
-
-	<!-- jQuery UI -->
-	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-	<!-- Data Tables -->
-	<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 
 </head>
 

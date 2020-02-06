@@ -28,9 +28,9 @@
 
 				</security:authorize>
 		
-					 <a href="<spring:url value='/members' />" class="btn btn-default">
+					 <!-- a href="<spring:url value='/members' />" class="btn btn-default">
 						<span class="glyphicon-hand-left glyphicon"></span> Go to Community
-					</a>
+					</a-->
 				</div>	
 	 			<div class="pull-left"> <h3>${SpecialBlurb}</h3> </div>
 		</div>	
