@@ -30,6 +30,18 @@
 		<put-attribute name="tagline" value="Sign up " />
 		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
 	</definition>
+	
+	<definition name="rental" extends="baseLayout">
+		<put-attribute name="title" value="" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="Rents" />
+		<put-attribute name="body" value="/WEB-INF/views/rental.jsp" />
+	</definition>
+	<definition name="rentals" extends="baseLayout">
+		<put-attribute name="title" value="" />
+		<put-attribute name="heading" value="" />
+		<put-attribute name="tagline" value="All Rents" />
+		<put-attribute name="body" value="/WEB-INF/views/rentals.jsp" />
 
 	<definition name="viewcar" extends="baseLayout">
 		<put-attribute name="title" value="Cars" />
