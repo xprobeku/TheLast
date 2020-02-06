@@ -2,10 +2,8 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
-<<<<<<< HEAD
 <!-- TODO 3:  Templates, Navigation, header, fooder, etc-->
-=======
->>>>>>> eb66e6e33068e4d2529393e0fcdb079c1fb0f9f3
+
 <tiles-definitions>
 
     <definition name="baseLayout" template="/WEB-INF/tiles/template/layoutTemplate.jsp">
@@ -19,7 +17,7 @@
 
     <definition name="welcome" extends="baseLayout">
         <put-attribute name="title" value="...:::The LasT:::..."/>
-        <put-attribute name="heading" value="Internationalization"/>
+        <put-attribute name="heading" value="Welcome"/>
         <put-attribute name="body" value="/WEB-INF/views/welcome.jsp"/>
     </definition>
     <definition name="login" extends="baseLayout">
@@ -64,17 +62,17 @@
 
     <definition name="cars" extends="baseLayout">
         <put-attribute name="title" value="Manage car"/>
-        <put-attribute name="heading" value="Manage car"/>
         <put-attribute name="tagline" value="Manage car"/>
         <put-attribute name="body" value="/WEB-INF/views/cars.jsp"/>
     </definition>
 
-    <definition name="addProduct" extends="baseLayout">
-        <put-attribute name="title" value="Products"/>
-        <put-attribute name="heading" value="Products"/>
-        <put-attribute name="tagline" value="Product"/>
-        <put-attribute name="body" value="/WEB-INF/views/addProduct.jsp"/>
+    <definition name="approve" extends="baseLayout">
+        <put-attribute name="title" value="Approve"/>
+        <put-attribute name="tagline" value="Approve"/>
+        <put-attribute name="body" value="/WEB-INF/views/approvecar.jsp"/>
     </definition>
+
+
 
     <definition name="productNotFound" extends="baseLayout">
         <put-attribute name="title" value="Product Exception"/>

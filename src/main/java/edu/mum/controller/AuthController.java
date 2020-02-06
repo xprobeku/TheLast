@@ -71,7 +71,7 @@ public class AuthController {
     private void addUserInSession(User user, HttpSession httpSession ){
         httpSession.setAttribute("user",user);
         httpSession.setAttribute("userName",user.getUserName());
-        httpSession.setAttribute("role",user.getRoles());
+        httpSession.setAttribute("role",user.getRoles().get(0));
     }
 
 //    /**
