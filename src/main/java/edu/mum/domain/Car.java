@@ -3,14 +3,9 @@ package edu.mum.domain;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Base64;
-
 
 @Entity
 public class Car {
@@ -23,7 +18,6 @@ public class Car {
     @NotEmpty
     private String model=null;
 
-//    @NotNull(message = "Please provide year")
     @DateTimeFormat(pattern="yyyy")
     private Integer year;
 
@@ -41,28 +35,11 @@ public class Car {
     @NotBlank(message = "Please provide description")
     private String description;
 
-    @NotBlank(message = "Please provide status")
+//    @NotBlank(message = "Please provide status")
     private String status;
 
-   // @NotNull
-    private Boolean isAvailable = true;
-
-    private transient MultipartFile cover;
-    //@JsonIgnore
-    @Lob
-    @Column(name = "cover")
-    private byte[] bookCover;
-
-
-    public byte[] getBookCover() {
-        return bookCover;
-    }
-
-    public String getUrl() {
-        if(this.bookCover != null && this.bookCover.length > 0)
-            return "data:image/png;base64," + Base64.getEncoder().encodeToString(this.bookCover);
-        return "";
-    }
+//    @NotNull
+    private Boolean isAvailable;
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<Image> images;
@@ -199,11 +176,4 @@ public class Car {
                 '}';
     }
 
-    public MultipartFile getCover() {
-        return cover;
-    }
-
-    public void setCover(MultipartFile cover) {
-        this.cover = cover;
-    }
 }

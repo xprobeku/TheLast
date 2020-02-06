@@ -44,7 +44,7 @@ public class AuthService {
      **/
 
     public String doSignIn(String username, String password) {
-        System.out.println("1" + " " + userRepository.findPasswordByUserName(username));
+        System.out.println(username + "1" + " " + userRepository.findPasswordByUserName(username));
         System.out.println(passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)));
         if (validationService.doValidatePassword(password)) {
             System.out.println("1");

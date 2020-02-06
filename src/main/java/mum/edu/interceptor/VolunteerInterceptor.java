@@ -18,7 +18,7 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 
 		// test interceptor Order		
 		System.out.println("INTERCEPTOR PREHANDLE");
- 	
+
 		return true;
 		
 	}

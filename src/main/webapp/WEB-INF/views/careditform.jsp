@@ -47,10 +47,6 @@
             <form:errors path="*" cssClass="alert alert-danger" element="div"/>
             <table >
                 <tr>
-                    <td></td>
-                    <td><form:hidden path="id" /></td>
-                </tr>
-                <tr>
                     <td>Car Brand : </td>
                     <td>
                         <form:select path="carBrand">
