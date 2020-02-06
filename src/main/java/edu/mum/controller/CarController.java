@@ -56,15 +56,16 @@ public class CarController {
     @RequestMapping(value="/editcar/{id}", method=RequestMethod.GET)
     public String edit(@PathVariable Long id, Model model){
         Car car = carService.getById(id);
+        model.addAttribute("car", car);
         model.addAttribute("brandList", carService.getBrands());
         model.addAttribute("command", car);
         return "careditform";
     }
 
     @RequestMapping(value="/editsave", method = RequestMethod.POST)
-    public String editSave(@ModelAttribute("car")Car car){
-//        if(result.hasErrors())
-//            return "/editcar/{id}";
+    public String editSave(@Valid @ModelAttribute("car")Car car, BindingResult result){
+        if(result.hasErrors())
+            return "/editcar/{id}";
         //change after session complete * ADMIN can change
         car.setAvailable(true);
         car.setStatus("PENDING");
