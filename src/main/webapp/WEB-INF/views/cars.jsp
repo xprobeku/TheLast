@@ -21,12 +21,49 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../resources/css/car.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
+    <script src="<c:url value="/resources/js/jquery.autocomplete.min.js" />"></script>
+    <script src="<c:url value="/resources/js/jquery.1.10.2.min.js" />"></script>
 
 </head>
 <body>
+
+<div>
+    <input type="text"  id="search" value="">
+    <span>
+	  <button id="button-id" type="button">Sea]rch</button>
+	</span>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+        alert(1);
+
+        $('#search').autocomplete({
+            serviceUrl: '${pageContext.request.contextPath}/getTags',
+            paramName: "tagName",
+            delimiter: ",",
+            transformResult: function(response) {
+
+                return {
+                    //must convert json to javascript object before process
+                    suggestions: $.map($.parseJSON(response), function(item) {
+
+                        return { value: item.tagName, data: item.id };
+                    })
+
+                };
+
+            }
+
+        });
+
+    });
+</script>
+
 <div class="container">
     <div class="table-wrapper">
 
@@ -60,16 +97,15 @@
                     <td>
                         <a href="editcar/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
                     </td>
-<%--                    <td>--%>
-<%--                        <a href="editcar/${car.id}" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>--%>
-<%--                        <a href="deletecar/${car.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>--%>
-<%--                    </td>--%>
+                        <%--                    <td>--%>
+                        <%--                        <a href="editcar/${car.id}" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>--%>
+                        <%--                        <a href="deletecar/${car.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">cancel</i></a>--%>
+                        <%--                    </td>--%>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
-    <a href="${pageContext.request.contextPath}/carform" class="approve"><h3><i class="material-icons">add_circle</i>Add new car</h3></a>
 </div>
 </body>
 </html>

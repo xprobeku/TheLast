@@ -116,5 +116,6 @@
     <orderEntry type="library" name="Maven: jboss:javassist:3.7.ga" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-compat:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:17.0" level="project" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

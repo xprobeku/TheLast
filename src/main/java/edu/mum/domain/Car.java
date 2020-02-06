@@ -1,9 +1,13 @@
 package edu.mum.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -12,13 +16,13 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
     private String carBrand;
 
-    @NotBlank(message = "{Not.Null}")
-    private String model;
+    @NotEmpty
+    private String model=null;
 
-    @NotNull(message = "Please provide year")
+//    @NotNull(message = "Please provide year")
+    @DateTimeFormat(pattern="yyyy")
     private Integer year;
 
     @NotNull(message = "Please provide price")
@@ -175,4 +179,5 @@ public class Car {
 //                ", images=" + images +
                 '}';
     }
+
 }
