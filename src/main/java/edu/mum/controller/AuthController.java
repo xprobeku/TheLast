@@ -53,7 +53,7 @@ public class AuthController {
                     }
                     else if(loggedUser.getRoles().contains(Role.OWNER) || loggedUser.getRoles().contains(Role.RENTER)){
                         addUserInSession(loggedUser, httpSession);
-                        return "redirect:/dashboard123";
+                        return "redirect:/dashboard";
                     }
                     else{
                         model.addAttribute("error", "Invalid User Role");

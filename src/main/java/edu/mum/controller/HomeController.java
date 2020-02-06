@@ -44,7 +44,7 @@ public class HomeController {
         return "signup";
     }
 
-    @RequestMapping(value = {"/dashboard123 "} , method = RequestMethod.GET)
+    @RequestMapping(value = {"/dashboard "} , method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView dashboard(HttpSession session) {
         return new ModelAndView("dashboard");
