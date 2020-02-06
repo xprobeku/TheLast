@@ -17,7 +17,7 @@ public interface RentalService {
 
     List<Rental> getByUser(long userId);
 
-    void createRental(Rental rental);
+    void createRental(Rental rental, Long carId);
 
     void rentalApprove(long rentalId);
 

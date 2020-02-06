@@ -44,8 +44,8 @@ public class Car {
     @NotBlank(message = "Please provide status")
     private String status;
 
-    @NotNull
-    private Boolean isAvailable;
+   // @NotNull
+    private Boolean isAvailable = true;
 
     private transient MultipartFile cover;
     //@JsonIgnore
