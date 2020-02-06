@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <form:form method="POST" action="editsave">
+        <form:form modelAttribute="car" method="POST" action="editsave">
             <form:errors path="*" cssClass="alert alert-danger" element="div"/>
             <table >
                 <tr>
@@ -65,15 +65,21 @@
                 </tr>
                 <tr>
                     <td>Year :</td>
-                    <td><form:input path="year" /></td>
+                    <td><form:input path="year" />
+                        <form:errors path="year" cssClass="text-danger"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Price :</td>
-                    <td><form:input path="price" /></td>
+                    <td><form:input path="price" />
+                        <form:errors path="price" cssClass="text-danger"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Seats :</td>
-                    <td><form:input path="seats" /></td>
+                    <td><form:input path="seats" />
+                        <form:errors path="seats" cssClass="text-danger"/>
+                    </td>
                 </tr>
 <%--                <tr>--%>
 <%--                    <td>User Name :</td>--%>
@@ -81,7 +87,9 @@
 <%--                </tr>--%>
                 <tr>
                     <td>Pick up location :</td>
-                    <td><form:input path="pickUpLocation" /></td>
+                    <td><form:input path="pickUpLocation" />
+                        <form:errors path="pickUpLocation" cssClass="text-danger"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Description :</td>

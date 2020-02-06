@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,15 +27,13 @@ public class CarController {
     CarService carService;
 
     @RequestMapping("/carform")
-    public String showCars(Model model){
-        model.addAttribute("brandList", carService.getBrands());
-        model.addAttribute("command", new Car());
+    public String showCars(@ModelAttribute("car")Car car){
         return "carform";
 
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public String save(@Valid @ModelAttribute("cars") Car car, BindingResult result){
+    public String save(@Valid @ModelAttribute("car") Car car, BindingResult result){
         if(result.hasErrors()){
             return "carform";
         }
