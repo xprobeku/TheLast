@@ -13,15 +13,19 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO 4 : make class as a Controller Spring Bean
 @Controller
 public class CarRest {
 
-    @Autowired
-    CarService carService;
+    private final CarService carService;
 
     List<Tag> data = new ArrayList<Tag>();
 
-    CarRest() {
+    // TODO 5:  autowiring by Type in constructor argument.
+    @Autowired
+    CarRest(CarService carservice) {
+
+        this.carService = carservice;
 
         data.add(new Tag(1, "TOYOTA"));
         data.add(new Tag(2, "AUDIO"));
@@ -35,6 +39,7 @@ public class CarRest {
     }
 
     @RequestMapping(value = "/getTags", method = RequestMethod.GET)
+    // TODO 6 : return the body of the response using @ResponseBody
     public @ResponseBody
     List<Tag> getTags(@RequestParam String tagName) {
 
@@ -62,6 +67,7 @@ public class CarRest {
         return "listsearch";
     }
 
+
     @RequestMapping(value = "/rest/cars/list", method = RequestMethod.GET)
     public @ResponseBody String  listAll(Model model)
     {
@@ -70,6 +76,7 @@ public class CarRest {
         return  carService.getAll().toString();
   }
 
+    // TODO 7 : Find by any text from database
     @RequestMapping(value = "/rest/cars/list/{modelname}", method = RequestMethod.GET)
     public @ResponseBody String  findByModel(@PathVariable("modelname") String modelname, Model model)
     {
