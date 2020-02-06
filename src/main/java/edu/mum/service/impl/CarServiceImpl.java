@@ -77,7 +77,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> searchCars(String searchString) {
-        return new ArrayList<Car>();
+        return carRepository.findCars(searchString);
     }
 
 //    @Override
