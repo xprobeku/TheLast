@@ -12,11 +12,13 @@ import edu.mum.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,11 @@ public class CarController {
     }
 
     @RequestMapping(value="/save", method=RequestMethod.POST)
-    public String save(@ModelAttribute("cars") Car car){
+    public String save(@Valid @ModelAttribute("cars") Car car, BindingResult result){
+        if(result.hasErrors()){
+            return "carform";
+        }
+
         car.setAvailable(true);
         car.setStatus("PENDING");
         carService.save(car);
@@ -56,8 +62,12 @@ public class CarController {
         return "careditform";
     }
 
-    @RequestMapping(value="/editsave", method = RequestMethod.POST)
+    @RequestMapping(value="/editcar/editsave", method = RequestMethod.POST)
     public String editSave(@ModelAttribute("car")Car car){
+        //change after session complete * ADMIN can change
+        car.setAvailable(true);
+        car.setStatus("PENDING");
+
         carService.updateCar(car);
         return "redirect:/viewcar";
     }

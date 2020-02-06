@@ -73,6 +73,7 @@
             </tbody>
         </table>
     </div>
+    <a href="${pageContext.request.contextPath}/carform" class="approve"><h3><i class="material-icons">add_circle</i>Add new car</h3></a>
 </div>
 </body>
 </html>
