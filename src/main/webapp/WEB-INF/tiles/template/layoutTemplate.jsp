@@ -13,25 +13,10 @@
 
 <title><tiles:insertAttribute name="title" /></title>
 
-<link href="http://getbootstrap.com/dist/css/bootstrap.css"	rel="stylesheet">
-
-<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
-	<!-- Data Tables -->
-
-	<link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
-
-
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="<spring:url value="/resource/js/ajax.js"/>"></script>
-
-	<!-- jQuery UI -->
-	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-	<!-- Data Tables -->
-	<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-
+<link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="<spring:url value="/resource/js/ajax.js"/>"></script>
 </head>
-
 <body>
 
 	<div class="container">
@@ -47,19 +32,14 @@
 			<h1>
 				<tiles:insertAttribute name="heading" />
 			</h1>
-			<p>
-				<tiles:insertAttribute name="tagline" />
-			</p>
 		</div>
 
 		<div class="row">
 			<tiles:insertAttribute name="body" />
 		</div>
 
-		<div class="footer">
+		<div>
 			<tiles:insertAttribute name="footer" />
 		</div>
-
-	</div>
 </body>
 </html>

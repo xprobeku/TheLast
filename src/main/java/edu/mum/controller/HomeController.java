@@ -20,9 +20,8 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = {"/", "/index"} , method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/index","/welcome"} , method = RequestMethod.GET)
     public String index() {
-        String str = "uya";
         return "welcome";
     }
 
@@ -41,4 +40,8 @@ public class HomeController {
         return "signup";
     }
 
+    @RequestMapping(value = {"/dashboard"} , method = RequestMethod.GET)
+    public String dashboard() {
+        return "dashboard";
+    }
 }
