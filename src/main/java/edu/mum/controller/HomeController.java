@@ -5,13 +5,12 @@ import edu.mum.domain.Role;
 import edu.mum.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,8 +39,9 @@ public class HomeController {
         return "signup";
     }
 
-    @RequestMapping(value = {"/dashboard"} , method = RequestMethod.GET)
-    public String dashboard() {
-        return "dashboard";
+    @RequestMapping(value = {"/dashboard123 "} , method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView dashboard(HttpSession session) {
+        return new ModelAndView("dashboard");
     }
 }

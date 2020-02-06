@@ -44,31 +44,25 @@ public class AuthController {
             if(res.equals("Access")){
                 User loggedUser = userService.getByUserName(userName);
                 if(loggedUser == null){
-                    System.out.println("2");
                     model.addAttribute("error", "Login failed enter valid credentials");
                 }
                 else{
                     if(loggedUser.getRoles().contains(Role.ADMIN)){
-                        System.out.println("23");
                         addUserInSession(loggedUser, httpSession);
                         return "redirect:/dashboard";
                     }
                     else if(loggedUser.getRoles().contains(Role.OWNER) || loggedUser.getRoles().contains(Role.RENTER)){
-                        System.out.println("3");
                         addUserInSession(loggedUser, httpSession);
-                        return "redirect:/dashboard";
+                        return "redirect:/dashboard123";
                     }
                     else{
-                        System.out.println("4");
                         model.addAttribute("error", "Invalid User Role");
                         return "redirect:/index";
                     }
                 }
-                System.out.println("4");
                 model.addAttribute("user" , userService.getByUserName(userName));
                 return "redirect:/welcome";
             }
-        System.out.println(res);
             model.addAttribute("error", res);
             return "/login";
     }
@@ -138,7 +132,6 @@ public class AuthController {
         user.setCreateDate(LocalDateTime.now());
         List<Role> roles = new ArrayList<>();
         if(bindingResult.hasErrors()){
-            System.out.println("HAS ERROR");
             return "signup";
         }
            String res =  service.doSignUp(user);
@@ -153,9 +146,10 @@ public class AuthController {
      **/
 
     @RequestMapping(value = "signout", method = RequestMethod.GET)
-    @PreAuthorize("hasAuthority('Admin') or  hasAuthority('CarOwner')  or  hasAuthority('CarRenter')")
-    public void doLogout(HttpServletRequest req) {
+    public String doLogout(HttpServletRequest req, HttpSession session) {
         service.doLogout(req);
+        session.invalidate();
+        return "redirect:welcome";
     }
 
 }

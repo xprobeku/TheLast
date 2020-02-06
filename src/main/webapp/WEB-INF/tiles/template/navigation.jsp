@@ -14,10 +14,10 @@
     <li><a href="<spring:url value="/cars"/>">Car Management</a></li>
 </c:if>
 
-<c:set var="contains" value="false" />
-<c:forEach var="item" items="${sessionScope.role}">
-    <c:if test="${item == 1}">
-        <c:set var="contains" value="true" />
-    </c:if>
-</c:forEach>
+<%--<c:set var="contains" value="false" />--%>
+<%--<c:forEach var="item" items="${sessionScope.role}">--%>
+<%--    <c:if test="${item == 1}">--%>
+<%--        <c:set var="contains" value="true" />--%>
+<%--    </c:if>--%>
+<%--</c:forEach>--%>
 
