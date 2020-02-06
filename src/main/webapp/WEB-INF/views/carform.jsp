@@ -40,6 +40,9 @@ select#roles {
 label.control-label.col-lg-2.col-lg-2 {
     width: 150px;
 }
+.footer {
+    padding-top: 100px !important;
+}
 </style>
 </head>
 <body>
@@ -105,7 +108,16 @@ label.control-label.col-lg-2.col-lg-2 {
 									</div>
 								</div>
 							</div>
-
+							<div class="form-group">
+								<label class="control-label col-lg-2" for="status">Status : </label>
+								<div class="col-lg-10">
+									<div class="form:input-prepend">
+										<form:input id="status" path="status" type="text" class="form:input-large"/>
+										<form:errors path="status" cssClass="text-danger"/>
+									</div>
+								</div>
+							</div>
+							
 							<div class="form-group">
 								<label class="control-label col-lg-2" for="pickUpLocation">Pickup Location :</label>
 								<div class="col-lg-10">

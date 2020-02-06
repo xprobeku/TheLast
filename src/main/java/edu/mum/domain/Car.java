@@ -42,8 +42,8 @@ public class Car {
     @NotBlank(message = "Please provide status")
     private String status;
 
-    @NotNull
-    private Boolean isAvailable;
+   // @NotNull
+    private Boolean isAvailable = true;
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<Image> images;

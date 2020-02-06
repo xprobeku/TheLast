@@ -54,16 +54,19 @@ public class RentalServiceImpl implements RentalService {
     }
 
     @Override
-    public void createRental(Rental rental) {
+    public void createRental(Rental rental, Long carId) {
 
-        Long id = rental.getCar().getId();
-        Car car = carService.getById(id);
+        Car car = carService.getById(carId);
+        if(car.getAvailable()!= false)
+        {
         car.setAvailable(false);
         carService.save(car);
         rental.setCreateDate(LocalDateTime.now());
         rental.setCar(car);
         rental.setStatus(RentalStatus.PENDING);
         rentalRepository.save(rental);
+        }
+        
     }
 
     @Override

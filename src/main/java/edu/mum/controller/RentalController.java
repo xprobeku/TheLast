@@ -23,10 +23,9 @@ public class RentalController {
     CarService carService;
 
     //login in user id is needed in the session
-    @RequestMapping(value="/rent/{id}/{userId}")
-    public String saveRent(@PathVariable("id") Long carId, @PathVariable("userId") Long userId,Rental rental, Model model){
-        rental.setCar(carService.getById(carId));
-        rentalService.createRental(rental);
+    @RequestMapping(value="/rent/{id}")
+    public String saveRent(@PathVariable("id") Long carId, Rental rental, Model model){
+        rentalService.createRental(rental, carId);
         model.addAttribute("rental", rental);
         return "rental";
     }
