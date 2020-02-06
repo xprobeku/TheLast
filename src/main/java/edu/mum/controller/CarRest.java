@@ -1,6 +1,7 @@
 package edu.mum.controller;
 
 import edu.mum.domain.Car;
+import edu.mum.domain.Tag;
 import edu.mum.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,6 +18,51 @@ import java.util.List;
 
     @Autowired
     CarService carService;
+
+    List<Tag> data = new ArrayList<Tag>();
+
+    CarRest() {
+        // init data for testing
+        data.add(new Tag(1, "ruby"));
+        data.add(new Tag(2, "rails"));
+        data.add(new Tag(3, "c / c++"));
+        data.add(new Tag(4, ".net"));
+        data.add(new Tag(5, "python"));
+        data.add(new Tag(6, "java"));
+        data.add(new Tag(7, "javascript"));
+        data.add(new Tag(8, "jscript"));
+
+    }
+
+    @RequestMapping(value = "/getTags", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Tag> getTags(@RequestParam String tagName) {
+
+        System.out.println(tagName + "((((((((((((((((((((");
+
+        return simulateSearchResult(tagName);
+    }
+
+    private List<Tag> simulateSearchResult(String tagName) {
+
+        List<Tag> result = new ArrayList<Tag>();
+
+        // iterate a list and filter by tagName
+        for (Tag tag : data) {
+            if (tag.getTagName().contains(tagName)) {
+                result.add(tag);
+            }
+        }
+
+        return result;
+    }
+
+
+    @RequestMapping(method=RequestMethod.POST)
+    public String post(String q, Model model) {
+        model.addAttribute("queryParam", q);
+        return "listsearch";
+    }
 
     @RequestMapping(value = "/rest/cars/list", method = RequestMethod.GET)
     public @ResponseBody String  listAll(Model model)
