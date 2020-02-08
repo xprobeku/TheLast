@@ -16,6 +16,7 @@
 
 <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
 	<!-- Data Tables -->
+	<link href="/resources/css/main.css" rel="stylesheet">
 
 </head>
 

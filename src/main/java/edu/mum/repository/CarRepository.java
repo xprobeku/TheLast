@@ -23,7 +23,7 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findAllBySeatsEqualsOrYearEquals(Integer seats, Integer year);
 
     // TODO 8 : return car list filter by carBrand, model, price etc...
-    @Query("SELECT c FROM Car c WHERE (c.carBrand   = :searchvalue or c.model   = :searchvalue  or c.price   = :searchvalue)")
+    @Query("SELECT c FROM Car c WHERE (c.carBrand   = :searchvalue or c.model   = :searchvalue  )")
     List<Car> findCars(@Param("searchvalue") String searchvalue);
 
 }

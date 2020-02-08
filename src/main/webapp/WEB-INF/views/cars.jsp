@@ -22,10 +22,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <script src="<c:url value="/resources/js/jquery.autocomplete.min.js" />"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
-    <script src="<c:url value="/resources/js/jquery.autocomplete.min.js" />"></script>
-    <script src="<c:url value="/resources/js/jquery.1.10.2.min.js" />"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.10/jquery.autocomplete.min.js"></script>
+
    <style type="text/css">
    @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
@@ -68,34 +70,38 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+   .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+   .autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:22px}
+   .autocomplete-selected { background: #F0F0F0; }
+   .autocomplete-suggestions strong { font-weight: bold; color: #3399FF; }
    </style>
 
 </head>
 <body>
 
+<form:form method="post" action="cars">
 <div>
-    <input type="text"  id="search" value="">
+    Search:<input type="text"  id="searchtext" name="searchtext" value=""  placeholder="input keyword for car mark, model">
     <span>
-	  <button id="button-id" type="button">Search</button>
+	  <button id="button-id" type="submit">Search</button>
 	</span>
 </div>
-
+</form:form>
 <script>
+
+
     $(document).ready(function() {
 
-        //alert(1);
         // TODO 9 : AJAX Call Auto fill for text
-        $('#search').autocomplete({
+        $('#searchtext').autocomplete({
             serviceUrl: '${pageContext.request.contextPath}/getTags',
             paramName: "tagName",
             delimiter: ",",
             transformResult: function(response) {
-
-                return {
+                  return {
 
                     suggestions: $.map($.parseJSON(response), function(item) {
-
                         return { value: item.tagName, data: item.id };
                     })
 

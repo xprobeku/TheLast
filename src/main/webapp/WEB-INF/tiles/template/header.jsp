@@ -2,8 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 
-<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
-
+<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
 
 
 <div class="jumbotron">
