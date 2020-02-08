@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import edu.mum.domain.Car;
 import edu.mum.domain.Rental;
 import edu.mum.domain.RentalStatus;
+import edu.mum.domain.User;
 import edu.mum.repository.RentalRepository;
 import edu.mum.service.CarService;
 import edu.mum.service.RentalService;
@@ -54,7 +55,7 @@ public class RentalServiceImpl implements RentalService {
     }
 
     @Override
-    public void createRental(Rental rental, Long carId) {
+    public void createRental(Rental rental, Long carId, User user) {
 
         Car car = carService.getById(carId);
         if(car.getAvailable()!= false)
@@ -62,7 +63,11 @@ public class RentalServiceImpl implements RentalService {
         car.setAvailable(false);
         carService.save(car);
         rental.setCreateDate(LocalDateTime.now());
+        rental.setApprovalDate(LocalDate.now());
+        rental.setPickUpDate(LocalDate.now().plusDays(2));
+        rental.setReturnDate(LocalDate.now().plusMonths(2));
         rental.setCar(car);
+        rental.setUser(user);
         rental.setStatus(RentalStatus.PENDING);
         rentalRepository.save(rental);
         }

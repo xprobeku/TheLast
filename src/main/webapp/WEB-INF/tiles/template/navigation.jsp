@@ -16,6 +16,7 @@
 
 <c:if test="${sessionScope.role == 'ADMIN'}">
     <li><a href="<spring:url value="/viewapprovecar"/>">Approve</a></li>
+    <li><a href="<spring:url value="/viewAllRentals"/>">All Rents</a></li>
 </c:if>
 
 <%--<c:set var="contains" value="false" />--%>

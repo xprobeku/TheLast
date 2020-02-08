@@ -43,7 +43,7 @@
 						<td><a href="<spring:url value="/rental/approve/${rental.id}"/>">Approve</a></td>
 						<td><a href="<spring:url value="/rental/decline/${rental.id}"/>">Decline</a></td>
 
-						<c:if test="${rental.status.toString().equals('PENDING')}">
+						<c:if test="${rental.status.toString().equals('APPROVED') || rental.status.toString().equals('DECLINED')}">
 							<td><a href="<spring:url value="/rental/returned/${rental.id}"/>">Returned</a></td>
 						</c:if>
 					</tr>

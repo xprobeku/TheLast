@@ -159,7 +159,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 						</fieldset>
 					</td>
                     <td>
-                        <a href="/rent/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
+                        <a href="rent/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
                     </td>
                         <%--                    <td>--%>
                         <%--                        <a href="editcar/${car.id}" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>--%>
