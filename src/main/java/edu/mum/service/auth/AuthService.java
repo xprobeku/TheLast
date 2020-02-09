@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Service
 public class AuthService {
@@ -44,12 +45,8 @@ public class AuthService {
      **/
 
     public String doSignIn(String username, String password) {
-        System.out.println(username + "1" + " " + userRepository.findPasswordByUserName(username));
-        System.out.println(passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)));
         if (validationService.doValidatePassword(password)) {
-            System.out.println("1");
             if (userRepository.findByUserName(username) != null) {
-                System.out.println("1");
                 if (passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)))
                        return "Access";
                     else {
@@ -91,7 +88,8 @@ public class AuthService {
      * do.Logout
      **/
 
-    public void doLogout(HttpServletRequest req) {
+    public void doLogout(HttpServletRequest req, HttpSession session) {
+        session.invalidate();
     }
 
     /**

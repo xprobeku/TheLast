@@ -12,9 +12,7 @@
 
 <title><tiles:insertAttribute name="title" /></title>
 
-<link href="http://getbootstrap.com/dist/css/bootstrap.css"	rel="stylesheet">
 
-<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
 	<!-- Data Tables -->
 	<link href="/resources/css/main.css" rel="stylesheet">
 

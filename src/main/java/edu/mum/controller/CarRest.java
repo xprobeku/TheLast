@@ -52,10 +52,6 @@ public class CarRest {
 
     @RequestMapping(value = "/getTags", method = RequestMethod.GET)
     public @ResponseBody  List<Tag> getTags(@RequestParam String tagName) {
-
-        System.out.println("^^^^^^^^^^^^^^^^^^^^"  );
-        System.out.println(SearchResult(tagName));
-
         return SearchResult(tagName);
     }
 
@@ -76,7 +72,6 @@ public class CarRest {
     @RequestMapping(value = "/cars", method = RequestMethod.POST)
     public String  findByModel(@RequestParam("searchtext") String searchtext, Model model)
     {
-        System.out.println("##########" + searchtext + "##########"  );
         List<Car> list;
         if(searchtext.trim().equals(""))
         {

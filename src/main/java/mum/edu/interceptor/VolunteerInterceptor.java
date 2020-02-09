@@ -16,9 +16,6 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 
-		// test interceptor Order		
-		System.out.println("INTERCEPTOR PREHANDLE");
-
 		return true;
 		
 	}
@@ -26,29 +23,22 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
  	@Override
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,ModelAndView modelAndView) throws Exception {
-//	String userMessage = "Become a Community Member - Join the Team!";
 	String userMessage ="YES";
 		Principal principal = request.getUserPrincipal();
 
 		if (principal != null) {
-			if (request.isUserInRole("ROLE_ADMIN") )
-				userMessage = "There is ALWAYS Free cookies at www.freebies.com";
+			if (request.isUserInRole("ADMIN") )
+				userMessage = "ADMIN";
 			else 
-				userMessage = "We have Many NEW and exciting Volunteer opportunities!!!";
+				userMessage = "User!!";
  	}
-	
-//		System.out.println("Calling postHandle");
-//		modelAndView.getModelMap().addAttribute("SpecialBlurb", userMessage);
-
-		return;
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-//		System.out.println("Calling afterCompletion");
-		return;
+
 	}
 
 }

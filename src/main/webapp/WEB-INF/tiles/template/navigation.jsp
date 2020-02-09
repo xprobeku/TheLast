@@ -16,15 +16,7 @@
     <li><a href="<spring:url value="/viewapprovecar"/>">Approve</a></li>
     <li><a href="<spring:url value="/viewAllRentals"/>">All Rents</a></li>
 	</c:if>
-    <li><a href="<spring:url value="/logout"/>">Logout</a></li>
+    <li><a href="<spring:url value="/signout"/>">Logout</a></li>
 </c:if>
 
-
-
-<%--<c:set var="contains" value="false" />--%>
-<%--<c:forEach var="item" items="${sessionScope.role}">--%>
-<%--    <c:if test="${item == 1}">--%>
-<%--        <c:set var="contains" value="true" />--%>
-<%--    </c:if>--%>
-<%--</c:forEach>--%>
 

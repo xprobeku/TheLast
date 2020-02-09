@@ -28,7 +28,7 @@ public class RentalController {
     //login in user id is needed in the session
     @RequestMapping(value= {"/rent/{id}", "/viewcar/rent/{id}"})
     public String saveRent(@PathVariable("id") Long carId, Rental rental, Model model, HttpSession session){
-    	if(carService.getById(carId).getAvailable() == true)
+    	if(carService.getById(carId).getAvailable())
     	{
     	User user = (User) session.getAttribute("user");
         rentalService.createRental(rental, carId, user);
@@ -47,20 +47,20 @@ public class RentalController {
     }
 
     @RequestMapping(value = "/rental/approve/{rentalId}")
-    public String approveRental(@PathVariable Long rentalId, Rental rental)
+    public String approveRental(@PathVariable Long rentalId)
     {
         rentalService.rentalApprove(rentalId);
         return "redirect:/viewAllRentals";
     }
     @RequestMapping(value = "/rental/decline/{rentalId}")
-    public String declineRental(@PathVariable Long rentalId, Rental rental)
+    public String declineRental(@PathVariable Long rentalId)
     {
         rentalService.rentalReject(rentalId, "Rent is not accepted");
         return "redirect:/viewAllRentals";
     }
 
     @RequestMapping(value = "/rental/returned/{rentalId}")
-    public String returnedRental(@PathVariable Long rentalId, Rental rental)
+    public String returnedRental(@PathVariable Long rentalId)
     {
         rentalService.rentalFinish(rentalId);
         return "redirect:/viewAllRentals";

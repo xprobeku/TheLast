@@ -74,55 +74,6 @@ public class AuthController {
         httpSession.setAttribute("role",user.getRoles().get(0));
     }
 
-//    /**
-//     * do.Refresh
-//     **/
-//    @RequestMapping(value = "refresh", method = RequestMethod.GET)
-//    @PreAuthorize("hasAuthority('Admin') or  hasAuthority('CarOwner')  or  hasAuthority('CarRenter')")
-//    public ResponseDTO doRefresh(HttpServletRequest req) {
-//        try {
-//            LogUtilities.info(this.getClass().getName(), "[ctrl][auth][refresh][ini][" + req.getRemoteUser() + "][" + jwtTokenProvider.resolveToken(req) + "]");
-//
-//            ResponseDTO responseDTO = service.doRefresh(req);
-//
-//            LogUtilities.info(this.getClass().getName(), "[ctrl][auth][refresh][end][" + req.getRemoteUser() + "][" + jwtTokenProvider.resolveToken(req) + "]");
-//
-//            return responseDTO;
-//
-//        } catch (NotFoundException ex) {
-//            LogUtilities.warn(this.getClass().getName(), "[ctrl][auth][refresh][not.found][ " + ex.getMessage() + "]");
-//            return new ResponseService(HttpStatus.NOT_FOUND.value(), null, new ErrorDTO(null, ex.getMessage(), ErrorType.NOT_FOUND)).getError();
-//        } catch (Exception ex) {
-//            LogUtilities.fatal(this.getClass().getName(), "[ctrl][auth][refresh][unknown][ " + ex.getMessage() + "]", ex);
-//            return new ResponseService(HttpStatus.INTERNAL_SERVER_ERROR.value(), null, new ErrorDTO(null, ex.getMessage(), ErrorType.UNKNOWN)).getError();
-//        }
-//    }
-
-    /**
-     * do.Check.Who.Am.I
-     **/
-//
-//    @RequestMapping(value = "check", method = RequestMethod.GET)
-//    @PreAuthorize("hasAuthority('Admin') or  hasAuthority('CarOwner')  or  hasAuthority('CarRenter')")
-//    public ResponseDTO doCheckWhoAmI(HttpServletRequest req) {
-//        try {
-//            LogUtilities.info(this.getClass().getName(), "[ctrl][auth][who.am.i][ini][" + req.getRemoteUser() + "][" + jwtTokenProvider.resolveToken(req) + "]");
-//
-//            ResponseDTO responseDTO = service.doCheckWhoAmI(req);
-//
-//            LogUtilities.info(this.getClass().getName(), "[ctrl][auth][who.am.i][end][" + req.getRemoteUser() + "][" + jwtTokenProvider.resolveToken(req) + "]");
-//
-//            return responseDTO;
-//
-//        } catch (NotFoundException ex) {
-//            LogUtilities.warn(this.getClass().getName(), "[ctrl][auth][who.am.i][not.found][ " + ex.getMessage() + "]");
-//            return new ResponseService(HttpStatus.NOT_FOUND.value(), null, new ErrorDTO(null, ex.getMessage(), ErrorType.NOT_FOUND)).getError();
-//        } catch (Exception ex) {
-//            LogUtilities.fatal(this.getClass().getName(), "[ctrl][auth][who.am.i][unknown][ " + ex.getMessage() + "]", ex);
-//            return new ResponseService(HttpStatus.INTERNAL_SERVER_ERROR.value(), null, new ErrorDTO(null, ex.getMessage(), ErrorType.UNKNOWN)).getError();
-//        }
-//    }
-
     /**
      * do.Signup
      **/
@@ -147,8 +98,7 @@ public class AuthController {
 
     @RequestMapping(value = "signout", method = RequestMethod.GET)
     public String doLogout(HttpServletRequest req, HttpSession session) {
-        service.doLogout(req);
-        session.invalidate();
+        service.doLogout(req,session);
         return "redirect:welcome";
     }
 
