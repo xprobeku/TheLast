@@ -120,7 +120,6 @@ h1 { font-size: 1.5em; margin: 10px; }
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-          		<th><spring:message code="car.picture" /></th>
                 <th><spring:message code="car.carBrand" /></th>
                 <th><spring:message code="car.carModel" /></th>
                 <th><spring:message code="car.year" /></th>
@@ -137,7 +136,6 @@ h1 { font-size: 1.5em; margin: 10px; }
             <tbody>
             <c:forEach var="car" items="${list}">
                 <tr>
-                    <td><img src="<c:url value="/resource/images/${car.id}.png"></c:url>" alt="image"  style = "width:100%"/></td>
                     <td><a href="editcar/${car.id}">${car.carBrand}</a></td>
                     <td>${car.model}</td>
                     <td>${car.year}</td>
