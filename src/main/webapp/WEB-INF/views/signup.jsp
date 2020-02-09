@@ -63,7 +63,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-lg-2" for="password"><spring:message code="signup.password" /></label>
 								<div class="col-lg-10">
-									<form:input id="password" path="password" type="text" class="form:input-large"/>
+									<form:input id="password" path="password" type="password" class="form:input-large"/>
 									<form:errors path="password" cssClass="text-danger"/>
 								</div>
 							</div>

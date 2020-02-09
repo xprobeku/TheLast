@@ -20,9 +20,11 @@ import javax.lang.model.type.ErrorType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -81,7 +83,7 @@ public class AuthController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String doSignUp(@Valid @ModelAttribute("userSignup") User user, BindingResult bindingResult, Model model) {
-        user.setCreateDate(LocalDateTime.now());
+        user.setCreateDate(new Date());
 
         List<Role> roles = new ArrayList<>();
         if(bindingResult.hasErrors()){
@@ -99,8 +101,8 @@ public class AuthController {
      **/
 
     @RequestMapping(value = "signout", method = RequestMethod.GET)
-    public String doLogout(HttpServletRequest req, HttpSession session) {
-        service.doLogout(req,session);
+    public String doLogout(HttpSession session) {
+        service.doLogout(session);
         return "redirect:welcome";
     }
 

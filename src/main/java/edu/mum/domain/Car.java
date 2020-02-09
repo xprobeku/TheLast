@@ -18,7 +18,6 @@ public class Car {
     @NotEmpty
     private String model=null;
 
-    @DateTimeFormat(pattern="yyyy")
     private Integer year;
 
     @NotNull(message = "Please provide price")

@@ -3,8 +3,7 @@ package edu.mum.domain;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Rental {
@@ -23,27 +22,27 @@ public class Rental {
 
     private String declineDesc;
 
-    private LocalDateTime createDate;
+    private Date createDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate approvalDate;
+    private Date approvalDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate declinedDate;
+    private Date declinedDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate pickUpDate;
+    private Date pickUpDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate expectedDate;
+    private Date expectedDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate returnDate;
+    private Date returnDate;
 
     public Rental() {
     }
 
-    public Rental(Car car, User user, RentalStatus status, String declineDesc, LocalDateTime createDate, LocalDate approvalDate, LocalDate declinedDate, LocalDate pickUpDate, LocalDate expectedDate, LocalDate returnDate) {
+    public Rental(Car car, User user, RentalStatus status, String declineDesc, Date createDate, Date approvalDate, Date declinedDate, Date pickUpDate, Date expectedDate, Date returnDate) {
         this.car = car;
         this.user = user;
         this.status = status;
@@ -96,51 +95,51 @@ public class Rental {
         this.declineDesc = declineDesc;
     }
 
-    public LocalDateTime getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDateTime createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
-    public LocalDate getApprovalDate() {
+    public Date getApprovalDate() {
         return approvalDate;
     }
 
-    public void setApprovalDate(LocalDate approvalDate) {
+    public void setApprovalDate(Date approvalDate) {
         this.approvalDate = approvalDate;
     }
 
-    public LocalDate getDeclinedDate() {
+    public Date getDeclinedDate() {
         return declinedDate;
     }
 
-    public void setDeclinedDate(LocalDate declinedDate) {
+    public void setDeclinedDate(Date declinedDate) {
         this.declinedDate = declinedDate;
     }
 
-    public LocalDate getPickUpDate() {
+    public Date getPickUpDate() {
         return pickUpDate;
     }
 
-    public void setPickUpDate(LocalDate pickUpDate) {
+    public void setPickUpDate(Date pickUpDate) {
         this.pickUpDate = pickUpDate;
     }
 
-    public LocalDate getExpectedDate() {
+    public Date getExpectedDate() {
         return expectedDate;
     }
 
-    public void setExpectedDate(LocalDate expectedDate) {
+    public void setExpectedDate(Date expectedDate) {
         this.expectedDate = expectedDate;
     }
 
-    public LocalDate getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 

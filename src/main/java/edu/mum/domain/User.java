@@ -2,11 +2,13 @@ package edu.mum.domain;
 
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -36,7 +38,8 @@ public class User {
 	@NotNull
 	private String email;
 
-	private LocalDateTime createDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createDate;
 
 	@ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
@@ -142,11 +145,11 @@ public class User {
 		this.email = email;
 	}
 
-	public LocalDateTime getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(LocalDateTime createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 

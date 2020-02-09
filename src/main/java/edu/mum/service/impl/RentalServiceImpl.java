@@ -3,6 +3,7 @@ package edu.mum.service.impl;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public List<Rental> searchRental(String searchString) {
-        return rentalRepository.findByUserUserNameContainingOrCarModelContaining(searchString,searchString);
+        return rentalRepository.findByUserUserNameContainingOrCarModelContaining(searchString, searchString);
     }
 
     @Override
@@ -58,26 +59,25 @@ public class RentalServiceImpl implements RentalService {
     public void createRental(Rental rental, Long carId, User user) {
 
         Car car = carService.getById(carId);
-        if(car.getAvailable()!= false)
-        {
-        car.setAvailable(false);
-        carService.save(car);
-        rental.setCreateDate(LocalDateTime.now());
-        rental.setApprovalDate(LocalDate.now());
-        rental.setPickUpDate(LocalDate.now().plusDays(2));
-        rental.setReturnDate(LocalDate.now().plusMonths(2));
-        rental.setCar(car);
-        rental.setUser(user);
-        rental.setStatus(RentalStatus.PENDING);
-        rentalRepository.save(rental);
+        if (car.getAvailable()) {
+            car.setAvailable(false);
+            carService.save(car);
+            rental.setCreateDate(new Date());
+            rental.setApprovalDate(new Date());
+            rental.setPickUpDate(new Date());
+            rental.setReturnDate(new Date());
+            rental.setCar(car);
+            rental.setUser(user);
+            rental.setStatus(RentalStatus.PENDING);
+            rentalRepository.save(rental);
         }
-        
+
     }
 
     @Override
     public void rentalApprove(long rentalId) {
         Rental rental = rentalRepository.findOne(rentalId);
-        rental.setApprovalDate(LocalDate.now());
+        rental.setApprovalDate(new Date());
         rental.setStatus(RentalStatus.APPROVED);
         rentalRepository.save(rental);
     }
@@ -86,7 +86,7 @@ public class RentalServiceImpl implements RentalService {
     public void rentalFinish(long rentalId) {
         Rental rental = rentalRepository.findOne(rentalId);
         setCarAvilablity(rental, true);
-        rental.setReturnDate(LocalDate.now());
+        rental.setReturnDate(new Date());
         rental.setStatus(RentalStatus.RETURNED);
         rentalRepository.save(rental);
     }
@@ -95,14 +95,13 @@ public class RentalServiceImpl implements RentalService {
     public void rentalReject(long rentalId, String rejectDesc) {
         Rental rental = rentalRepository.findOne(rentalId);
         setCarAvilablity(rental, true);
-        rental.setDeclinedDate(LocalDate.now());
+        rental.setDeclinedDate(new Date());
         rental.setDeclineDesc(rejectDesc);
         rental.setStatus(RentalStatus.DECLINED);
         rentalRepository.save(rental);
     }
 
-    void setCarAvilablity(Rental rental, Boolean status)
-    {
+    void setCarAvilablity(Rental rental, Boolean status) {
         Car car = rental.getCar();
         car.setAvailable(status);
         carService.updateCar(car);
