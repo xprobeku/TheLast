@@ -9,17 +9,21 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add new car</title>
+    <title><spring:message code="car.addNewCar"/></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/car.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 .panel.panel-default {
     width: 517px;
@@ -47,19 +51,22 @@ label.control-label.col-lg-2.col-lg-2 {
     <div class="row">
 		<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title"><spring:message code="signup.signup" /></h3>
+			 	</div>
 			  	<div class="panel-body">
 			  	<c:if test="${not empty error}">
 					<div class="alert alert-danger">
 						${error}
 					</div>
 				</c:if>
-        			<form:form  modelAttribute="car" method="POST" action="save" class="form-horizontal"  >
+        			<form:form  modelAttribute="car" method="POST" action="save" class="form-horizontal" enctype="multipart/form-data">
 						<fieldset>
-							<legend>Add new Car</legend>
+							<legend><spring:message code="car.addNewCar" /></legend>
 
 							<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 							<div class="form-group">
-								<label class="control-label col-lg-2 col-lg-2" for="carBrand"> Car Brand : </label>
+								<label class="control-label col-lg-2 col-lg-2" for="carBrand"><spring:message code="car.carBrand" /> : </label>
 								<div class="col-lg-10">
 									<form:select path="carBrand" id="carBrand">
 		                           	 <form:options items="${brandList}"></form:options>
@@ -68,7 +75,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-lg-2 col-lg-2" for="model">Model : </label>
+								<label class="control-label col-lg-2 col-lg-2" for="model"><spring:message code="car.carModel" /> : </label>
 								<div class="col-lg-10">
 									<form:input path="model" type="text" class="form:input-large" id="model"/>
                         			<form:errors path="model" cssClass="text-danger"/>
@@ -76,7 +83,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="year">Year : </label>
+								<label class="control-label col-lg-2" for="year"><spring:message code="car.year" /> : </label>
 								<div class="col-lg-10">
 									<form:input id="year" path="year" type="text" class="form:input-large"/>
 									<form:errors path="year" cssClass="text-danger"/>
@@ -84,7 +91,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="price">Price :</label>
+								<label class="control-label col-lg-2" for="price"><spring:message code="car.price" /> :</label>
 								<div class="col-lg-10">
 									<div class="form:input-prepend">
 										<form:input id="price" path="price" type="text" class="form:input-large"/>
@@ -94,7 +101,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="seats">Seats : </label>
+								<label class="control-label col-lg-2" for="seats"><spring:message code="car.seats" /> : </label>
 								<div class="col-lg-10">
 									<div class="form:input-prepend">
 										<form:input id="seats" path="seats" type="text" class="form:input-large"/>
@@ -103,7 +110,7 @@ label.control-label.col-lg-2.col-lg-2 {
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="status">Status : </label>
+								<label class="control-label col-lg-2" for="status"><spring:message code="car.status" /> : </label>
 								<div class="col-lg-10">
 									<div class="form:input-prepend">
 										<form:input id="status" path="status" type="text" class="form:input-large"/>
@@ -113,7 +120,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="pickUpLocation">Pickup Location :</label>
+								<label class="control-label col-lg-2" for="pickUpLocation"><spring:message code="car.location" /> :</label>
 								<div class="col-lg-10">
 									<div class="form:input-prepend">
 										<form:input id="pickUpLocation" path="pickUpLocation" type="text" class="form:input-large"/>
@@ -122,11 +129,20 @@ label.control-label.col-lg-2.col-lg-2 {
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="description">Description :</label>
+								<label class="control-label col-lg-2" for="description"><spring:message code="car.description" /> :</label>
 								<div class="col-lg-10">
 									<div class="form:input-prepend">
 										<form:input id="description" path="description" type="text" class="form:input-large"/>
 										<form:errors path="description" cssClass="text-danger"/>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-lg-2" for="picture"><spring:message code="car.picture" /> :</label>
+								<div class="col-lg-10">
+									<div class="form:input-prepend">
+										<form:input id="picture" path="productImage" type="file" class="form:input-large" />
 									</div>
 								</div>
 							</div>
