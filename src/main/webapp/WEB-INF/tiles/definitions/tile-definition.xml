@@ -79,6 +79,12 @@
         <put-attribute name="body" value="/WEB-INF/views/productNotFound.jsp"/>
     </definition>
 
+    <definition name="viewapprovecar" extends="baseLayout">
+        <put-attribute name="title" value="viewapprovecar"/>
+        <put-attribute name="heading" value="Cars"/>
+        <put-attribute name="body" value="/WEB-INF/views/viewapprovecar.jsp"/>
+    </definition>
+
 <!--    <definition name="dashboard" extends="baseLayout">-->
 <!--        <put-attribute name="title" value="Dashboard"/>-->
 <!--        <put-attribute name="heading" value="dashboard"/>-->

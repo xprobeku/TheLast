@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +82,7 @@ public class AuthController {
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String doSignUp(@Valid @ModelAttribute("userSignup") User user, BindingResult bindingResult, Model model) {
         user.setCreateDate(LocalDateTime.now());
+
         List<Role> roles = new ArrayList<>();
         if(bindingResult.hasErrors()){
             return "signup";
