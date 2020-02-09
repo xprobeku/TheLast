@@ -50,8 +50,8 @@ public class AuthService {
             if (userRepository.findByUserName(username) != null) {
                 // make this commend because we can't  make initial data
                 // uncomment after test. Populate.sql
-//                if (passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)))
-                if (password.equals(userRepository.findPasswordByUserName(username)))
+                if (passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)))
+//                if (password.equals(userRepository.findPasswordByUserName(username)))
                     return "Access";
                 else {
                     return ("username or password doesnt match");
@@ -76,7 +76,7 @@ public class AuthService {
                 if (userRepository.findByEmail(user.getEmail()) == null) {
                     // for test data make this line comment. Because have problem with initial data.
                     // Initial data cant encode password
-//                    user.setPassword(passwordEncoder.encode(user.getPassword()));
+                    user.setPassword(passwordEncoder.encode(user.getPassword()));
 
                     userRepository.save(user);
                     return "Saved";
