@@ -10,7 +10,6 @@
 <c:if test="${sessionScope.userName != null}">
     <li><a href="<spring:url value="/welcome"/>"><spring:message code="home.home" /></a></li>
     <li><a href="<spring:url value="/viewcar"/>"><spring:message code="rental.rentals.car" /></a></li>
-    <li><a href="<spring:url value="/viewAllRentals"/>"><spring:message code="rent.rents" /></a></li>
     <li><a href="<spring:url value="/cars"/>"><spring:message code="car.carManagment" /></a></li>
     <c:if test="${sessionScope.role == 'ADMIN'}">
     <li><a href="<spring:url value="/viewapprovecar"/>"><spring:message code="car.approve" /></a></li>
