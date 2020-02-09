@@ -1,8 +1,17 @@
 package edu.mum.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Tag {
 
-	public int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
 	public String tagName;
 
 	public int getId() {
@@ -19,6 +28,9 @@ public class Tag {
 
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
+	}
+
+	public Tag() {
 	}
 
 	public Tag(int id, String tagName) {
