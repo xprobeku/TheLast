@@ -9,12 +9,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
 
 <title><tiles:insertAttribute name="title" /></title>
 
 
-	<!-- Data Tables -->
-	<link href="/resources/css/main.css" rel="stylesheet">
 
 </head>
 
@@ -25,9 +24,10 @@
 			<ul class="nav nav-pills pull-right">
 				<tiles:insertAttribute name="navigation" />
 			</ul>
-			<h3 class="text-muted">CAR RENTAL WEBSITE</h3>
+			<h3 class="text-muted">.</h3>
 		</div>
 
+<div class="background">
 
 		<div class="jumbotron">
 			<h1>
@@ -41,6 +41,7 @@
 		<div class="row">
 			<tiles:insertAttribute name="body" />
 		</div>
+</div>
 
 		<div class="footer">
 			<tiles:insertAttribute name="footer" />

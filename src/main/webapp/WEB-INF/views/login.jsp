@@ -26,6 +26,7 @@
 				</c:if>
 			    	<form action="signin" method="post">
 						<fieldset>
+							<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 							<div class="form-group">
 								<input class="form:input-large" placeholder="User Name" type="text" name="userName">
 							</div>

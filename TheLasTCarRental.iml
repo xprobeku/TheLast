@@ -12,7 +12,14 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="RestSecurityConfig" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/edu/mum/configuration/RestSecurityConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/context/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/context/DispatcherServlet-context.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/context/security-Context.xml</file>
+        </fileset>
+      </configuration>
     </facet>
     <facet type="web" name="Web">
       <configuration>

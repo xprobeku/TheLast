@@ -39,7 +39,7 @@
 		<put-attribute name="tagline" value="Rents" />
 		<put-attribute name="body" value="/WEB-INF/views/rental.jsp" />
 	</definition>
-	
+
 	<definition name="rentals" extends="baseLayout">
 		<put-attribute name="title" value="" />
 		<put-attribute name="heading" value="" />

@@ -2,3 +2,74 @@
 .autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:22px}
 .autocomplete-selected { background: #F0F0F0; }
 .autocomplete-suggestions strong { font-weight: bold; color: #3399FF; }
+
+/*.jumbotron {*/
+/*    padding: 30px;*/
+/*    margin-bottom: 30px;*/
+/*    font-size: 21px;*/
+/*    font-weight: 200;*/
+/*    line-height: 2.1428571435;*/
+/*    color: inherit;*/
+/*    background-color: #eeeeee;*/
+/*}*/
+
+/*.jumbotron h1 {*/
+/*    line-height: 1;*/
+/*    color: inherit;*/
+/*}*/
+
+/*.jumbotron p {*/
+/*    line-height: 1.4;*/
+/*}*/
+
+body{
+    /*background-color: #e0e0e0   ;*/
+}
+.background {
+    width: 100%;
+    height: 500px;
+    background-image: url("/resources/images/wallpaper.jpg");
+}
+.header{
+    background-color: #263238;
+}
+.text-muted{
+    float: top;
+}
+.nav {
+    float: right;
+    width: 100%;
+    display: inline-block;
+
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.nav li {
+    float: right;
+}
+
+
+.nav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav li a:hover {
+    background-color: #111;
+}
+
+.nav .active {
+    background-color: red;
+}
+

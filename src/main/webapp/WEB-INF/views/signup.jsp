@@ -18,6 +18,7 @@
     width: 517px;
     margin: 0 auto;
 }
+
 form#userSignup {
     width: 500px;
 }
@@ -37,9 +38,6 @@ label.control-label.col-lg-2.col-lg-2 {
     <div class="row">
 		<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Sign up</h3>
-			 	</div>
 			  	<div class="panel-body">
 			  	<c:if test="${not empty error}">
 					<div class="alert alert-danger">
@@ -62,7 +60,7 @@ label.control-label.col-lg-2.col-lg-2 {
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-lg-2" for="password">Password</label>
 								<div class="col-lg-10">
-									<form:input id="password" path="password" type="text" class="form:input-large"/>
+									<form:input id="password" path="password" type="password" class="form:input-large"/>
 									<form:errors path="password" cssClass="text-danger"/>
 								</div>
 							</div>

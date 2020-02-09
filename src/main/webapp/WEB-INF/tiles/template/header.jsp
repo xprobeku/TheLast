@@ -3,7 +3,6 @@
 
 
 
-
 <div class="jumbotron">
     <h1>
         <tiles:insertAttribute name="heading" />
