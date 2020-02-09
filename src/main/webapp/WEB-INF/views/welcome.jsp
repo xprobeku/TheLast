@@ -23,9 +23,6 @@
 				  <div class="container">
  				  <security:authorize access="isAnonymous()">
   
-    					<a href="<spring:url value='/login' />" class="btn btn-default pull-right"> Login</a>
-					 	 <a href="<spring:url value='/signup' />" class="btn btn-default pull-right">Sign Up</a>
-
 				</security:authorize>
 		
 					 <!-- a href="<spring:url value='/members' />" class="btn btn-default">

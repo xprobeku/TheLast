@@ -9,7 +9,8 @@
 
 <c:if test="${sessionScope.userName != null}">
     <li><a href="<spring:url value="/welcome"/>">Home</a></li>
-    <li><a href="<spring:url value="/viewcar/"/>">Cars</a></li>
+    <li><a href="<spring:url value="/viewcar"/>">Cars</a></li>
+    <li><a href="<spring:url value="/viewAllRentals"/>">Rents</a></li>
     <li><a href="<spring:url value="/cars"/>">Car Management</a></li>
     <li><a href="<spring:url value="/logout"/>">Logout</a></li>
 </c:if>
