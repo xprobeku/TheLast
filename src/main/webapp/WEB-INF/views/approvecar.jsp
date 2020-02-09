@@ -8,16 +8,20 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Car list</title>
-    <link rel="stylesheet" href="../../resources/css/car.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../resources/css/car.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -25,23 +29,23 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-5">
-                    <h2>Cars</h2>
+                    <h2><spring:message code="car.label" /></h2>
                 </div>
             </div>
         </div>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Car Brand</th>
-                <th>Model</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>Seats</th>
-                <th>Owner</th>
-                <th>Location</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>RENT</th>
+                <th><spring:message code="car.carBrand" /></th>
+                <th><spring:message code="car.carModel" /></th>
+                <th><spring:message code="car.year" /></th>
+                <th><spring:message code="car.price" /></th>
+                <th><spring:message code="car.seats" /></th>
+                <th><spring:message code="car.owner" /></th>
+                <th><spring:message code="car.location" /></th>
+                <th><spring:message code="car.description" /></th>
+                <th><spring:message code="car.status" /></th>
+                <th><spring:message code="car.rent" /></th>
             </tr>
             </thead>
             <tbody>
