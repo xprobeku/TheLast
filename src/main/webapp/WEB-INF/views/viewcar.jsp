@@ -9,17 +9,22 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Car list</title>
+    <title><spring:message code="car.carList" /></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/car.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
+   @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
 body{ margin: 20px; }
@@ -70,17 +75,17 @@ h1 { font-size: 1.5em; margin: 10px; }
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Car Brand</th>
-                <th>Model</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>Seats</th>
-                <th>Owner</th>
-                <th>Location</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Rate</th>
-                <th>RENT</th>
+                <th><spring:message code="car.carBrand" /></th>
+                <th><spring:message code="car.carModel" /></th>
+                <th><spring:message code="car.year" /></th>
+                <th><spring:message code="car.price" /></th>
+                <th><spring:message code="car.seats" /></th>
+                <th><spring:message code="car.owner" /></th>
+                <th><spring:message code="car.location" /></th>
+                <th><spring:message code="car.description" /></th>
+                <th><spring:message code="car.status" /></th>
+                <th><spring:message code="car.rate" /></th>
+                <th><spring:message code="car.rent" /></th>
             </tr>
             </thead>
             <tbody>
@@ -98,19 +103,19 @@ h1 { font-size: 1.5em; margin: 10px; }
                     <td><fieldset class="rating">
                     <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 					    <input type="radio" id="${car.id}star5" name="rating" value="5" /><label class = "full" for="${car.id}star5" title="Awesome - 5 stars"></label>
-					    <input type="radio" id="${car.id}star4half" name="rating" value="4 and a half" /><label class="half" for="${car.id}star4half" title="Pretty good - 4.5 stars"></label>
+					    <input type="radio" id="${car.id}star4half" name="rating" value="4.5" /><label class="half" for="${car.id}star4half" title="Pretty good - 4.5 stars"></label>
 					    <input type="radio" id="${car.id}star4" name="rating" value="4" /><label class = "full" for="${car.id}star4" title="Pretty good - 4 stars"></label>
-					    <input type="radio" id="${car.id}star3half" name="rating" value="3 and a half" /><label class="half" for="${car.id}star3half" title="Meh - 3.5 stars"></label>
+					    <input type="radio" id="${car.id}star3half" name="rating" value="3.5" /><label class="half" for="${car.id}star3half" title="Meh - 3.5 stars"></label>
 					    <input type="radio" id="${car.id}star3" name="rating" value="3" /><label class = "full" for="${car.id}star3" title="Meh - 3 stars"></label>
-					    <input type="radio" id="${car.id}star2half" name="rating" value="2 and a half" /><label class="half" for="${car.id}star2half" title="Kinda bad - 2.5 stars"></label>
+					    <input type="radio" id="${car.id}star2half" name="rating" value="2.5" /><label class="half" for="${car.id}star2half" title="Kinda bad - 2.5 stars"></label>
 					    <input type="radio" id="${car.id}star2" name="rating" value="2" /><label class = "full" for="${car.id}star2" title="Kinda bad - 2 stars"></label>
-					    <input type="radio" id="${car.id}star1half" name="rating" value="1 and a half" /><label class="half" for="${car.id}star1half" title="Meh - 1.5 stars"></label>
+					    <input type="radio" id="${car.id}star1half" name="rating" value="1.5" /><label class="half" for="${car.id}star1half" title="Meh - 1.5 stars"></label>
 					    <input type="radio" id="${car.id}star1" name="rating" value="1" /><label class = "full" for="${car.id}star1" title="Sucks big time - 1 star"></label>
-					    <input type="radio" id="${car.id}starhalf" name="rating" value="half" /><label class="half" for="${car.id}starhalf" title="Sucks big time - 0.5 stars"></label>
+					    <input type="radio" id="${car.id}starhalf" name="rating" value="0.5" /><label class="half" for="${car.id}starhalf" title="Sucks big time - 0.5 stars"></label>
 						</fieldset>
 					</td>
                     <td>
-                        <a href="rent/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
+                        <a href="rent/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons"><spring:message code="car.directionsCar" /></i></a>
                     </td>
                         <%--                    <td>--%>
                         <%--                        <a href="editcar/${car.id}" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>--%>
@@ -121,7 +126,7 @@ h1 { font-size: 1.5em; margin: 10px; }
             </tbody>
         </table>
     </div>
-    <a href="${pageContext.request.contextPath}/carform" class="approve"><h3><i class="material-icons">add_circle</i>Add new car</h3></a>
+    <a href="${pageContext.request.contextPath}/carform" class="approve"><h3><i class="material-icons"><spring:message code="car.addCircle" /></i><spring:message code="car.addNewCar" /></h3></a>
 </div>
 </body>
 </html>
