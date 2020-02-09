@@ -3,9 +3,11 @@ package edu.mum.domain;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 public class Car {
@@ -17,6 +19,13 @@ public class Car {
 
     @NotEmpty
     private String model=null;
+    
+    @NotNull
+	@Transient
+	private MultipartFile  productImage;
+
+	@NotEmpty
+    private byte[] data;
 
     @DateTimeFormat(pattern="yyyy")
     private Integer year;
@@ -61,6 +70,15 @@ public class Car {
         this.seats = seats;
         this.owner = owner;
     }
+    
+	@XmlTransient  
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
 
     public long getId() {
         return id;
