@@ -10,10 +10,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><spring:message code="car.addNewCar"/></title>
@@ -60,7 +60,7 @@ label.control-label.col-lg-2.col-lg-2 {
 						${error}
 					</div>
 				</c:if>
-        			<form:form  modelAttribute="car" method="POST" action="save" class="form-horizontal" enctype="multipart/form-data">
+        			<form:form  modelAttribute="car" method="POST" action="save" class="form-horizontal"  >
 						<fieldset>
 							<legend><spring:message code="car.addNewCar" /></legend>
 
@@ -138,14 +138,6 @@ label.control-label.col-lg-2.col-lg-2 {
 								</div>
 							</div>
 							
-							<div class="form-group">
-								<label class="control-label col-lg-2" for="picture"><spring:message code="car.picture" /> :</label>
-								<div class="col-lg-10">
-									<div class="form:input-prepend">
-										<form:input id="picture" path="productImage" type="file" class="form:input-large" />
-									</div>
-								</div>
-							</div>
 							
 							<div class="form-group">
 								<div class="col-lg-offset-2 col-lg-10">
