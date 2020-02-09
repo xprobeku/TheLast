@@ -96,11 +96,13 @@
                     <td>Status :</td>
                     <td><form:input path="status" disabled="true" /></td>
                 </tr>
+                <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 
                 <tr>
                     <td> </td>
                     <td><input type="submit" value="Edit Save" /></td>
                 </tr>
+
             </table>
         </form:form>
     </div>

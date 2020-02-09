@@ -80,7 +80,7 @@ public class CarController {
         return "careditform";
     }
 
-    @RequestMapping(value="/editsave", method = RequestMethod.POST)
+    @RequestMapping(value="/editcar/editsave", method = RequestMethod.POST)
     public String editSave(@Valid @ModelAttribute("car")Car car, BindingResult result){
         if(result.hasErrors())
             return "/editcar/{id}";
