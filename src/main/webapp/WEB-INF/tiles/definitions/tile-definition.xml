@@ -39,7 +39,7 @@
 		<put-attribute name="tagline" value="Rents" />
 		<put-attribute name="body" value="/WEB-INF/views/rental.jsp" />
 	</definition>
-
+	
 	<definition name="rentals" extends="baseLayout">
 		<put-attribute name="title" value="" />
 		<put-attribute name="heading" value="" />
@@ -66,7 +66,7 @@
         <put-attribute name="body" value="/WEB-INF/views/cars.jsp"/>
     </definition>
 
-    <definition name="approve" extends="baseLayout">
+    <definition name="approvecar" extends="baseLayout">
         <put-attribute name="title" value="Approve"/>
         <put-attribute name="tagline" value="Approve"/>
         <put-attribute name="body" value="/WEB-INF/views/approvecar.jsp"/>
@@ -77,12 +77,6 @@
     <definition name="productNotFound" extends="baseLayout">
         <put-attribute name="title" value="Product Exception"/>
         <put-attribute name="body" value="/WEB-INF/views/productNotFound.jsp"/>
-    </definition>
-
-    <definition name="viewapprovecar" extends="baseLayout">
-        <put-attribute name="title" value="viewapprovecar"/>
-        <put-attribute name="heading" value="Cars"/>
-        <put-attribute name="body" value="/WEB-INF/views/viewapprovecar.jsp"/>
     </definition>
 
 <!--    <definition name="dashboard" extends="baseLayout">-->
