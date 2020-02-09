@@ -45,15 +45,19 @@ public class AuthService {
      **/
 
     public String doSignIn(String username, String password) {
+        System.out.println(validationService.doValidatePassword(password) + " -  " + password);
         if (validationService.doValidatePassword(password)) {
             if (userRepository.findByUserName(username) != null) {
-                if (passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)))
-                       return "Access";
-                    else {
-                        return ("username or password doesnt match");
-                    }
+                // make this commend because we can't  make initial data
+                // uncomment after test. Populate.sql
+//                if (passwordEncoder.matches(password,userRepository.findPasswordByUserName(username)))
+                if (password.equals(userRepository.findPasswordByUserName(username)))
+                    return "Access";
+                else {
+                    return ("username or password doesnt match");
+                }
             } else {
-               return ("User not found");
+                return ("User not found");
             }
         } else {
             return ("Password length doesnt match");
@@ -70,7 +74,10 @@ public class AuthService {
         if (validationService.doValidatePassword(user.getPassword())) {
             if (userRepository.findByUserName(user.getUserName()) == null) {
                 if (userRepository.findByEmail(user.getEmail()) == null) {
-                    user.setPassword(passwordEncoder.encode(user.getPassword()));
+                    // for test data make this line comment. Because have problem with initial data.
+                    // Initial data cant encode password
+//                    user.setPassword(passwordEncoder.encode(user.getPassword()));
+
                     userRepository.save(user);
                     return "Saved";
                 } else {
