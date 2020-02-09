@@ -16,16 +16,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Car list</title>
+    <title><spring:message code="car.carList" /></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="<c:url value="/resources/js/jquery.autocomplete.min.js" />"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="<c:url value="/resources/css/car.css" />" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.10/jquery.autocomplete.min.js"></script>
 
    <style type="text/css">
+   @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
 body{ margin: 20px; }
@@ -78,9 +82,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 
 <form:form method="post" action="cars">
 <div>
-    Search:<input type="text"  id="searchtext" name="searchtext" value=""  placeholder="input keyword for car mark, model">
+    <spring:message code="search.search" /> : <input type="text"  id="searchtext" name="searchtext" value=""  placeholder="input keyword for car mark, model">
     <span>
-	  <button id="button-id" type="submit">Search</button>
+	  <button id="button-id" type="submit"><spring:message code="search.search" /></button>
 	</span>
 </div>
 </form:form>
@@ -116,22 +120,24 @@ h1 { font-size: 1.5em; margin: 10px; }
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Car Brand</th>
-                <th>Model</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>Seats</th>
-                <th>Owner</th>
-                <th>Location</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Rate</th>
-                <th>RENT</th>
+          		<th><spring:message code="car.picture" /></th>
+                <th><spring:message code="car.carBrand" /></th>
+                <th><spring:message code="car.carModel" /></th>
+                <th><spring:message code="car.year" /></th>
+                <th><spring:message code="car.price" /></th>
+                <th><spring:message code="car.seats" /></th>
+                <th><spring:message code="car.owner" /></th>
+                <th><spring:message code="car.location" /></th>
+                <th><spring:message code="car.description" /></th>
+                <th><spring:message code="car.status" /></th>
+                <th><spring:message code="car.rate" /></th>
+                <th><spring:message code="car.rent" /></th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="car" items="${list}">
                 <tr>
+                    <td><img src="<c:url value="/resource/images/${car.id}.png"></c:url>" alt="image"  style = "width:100%"/></td>
                     <td><a href="editcar/${car.id}">${car.carBrand}</a></td>
                     <td>${car.model}</td>
                     <td>${car.year}</td>
@@ -155,7 +161,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 						</fieldset>
 					</td>
                     <td>
-                        <a href="rent/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons">directions_car</i></a>
+                        <a href="rent/${car.id}" class="rent" title="Rent" data-toggle="tooltip"><i class="material-icons"><spring:message code="car.directionsCar" /></i></a>
                     </td>
                         <%--                    <td>--%>
                         <%--                        <a href="editcar/${car.id}" class="approve" title="Approve" data-toggle="tooltip"><i class="material-icons">check_circle</i></a>--%>
