@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login </title>
+<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<title><spring:message code="login.login" /> </title>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 		<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Please sign in</h3>
+			    	<h3 class="panel-title"><spring:message code="signin.please" /></h3>
 			 	</div>
 			  	<div class="panel-body">
 			  	<c:if test="${not empty error}">
@@ -26,7 +27,6 @@
 				</c:if>
 			    	<form action="signin" method="post">
 						<fieldset>
-							<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 							<div class="form-group">
 								<input class="form:input-large" placeholder="User Name" type="text" name="userName">
 							</div>
@@ -34,7 +34,7 @@
 								<input class=" form:input-large" placeholder="Password" type="password" name="password">
 							</div>
 							<div class="form-group">
-								<input type='checkbox' name="keepMe"/>Remember Me? <br/>
+								<input type='checkbox' name="keepMe"/><spring:message code="signin.remeber" /> <br/>
 							</div>
 							<input class="btn btn-lg btn-success btn-mini" type="submit" value="Login">
 						</fieldset>
