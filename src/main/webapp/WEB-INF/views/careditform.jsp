@@ -42,6 +42,7 @@
         </div>
         <form:form modelAttribute="car" method="POST" action="editsave">
             <form:errors path="*" cssClass="alert alert-danger" element="div"/>
+            <form:input path="id" value="${car.id}" type="hidden"/>
             <table >
                 <tr>
                     <td>Car Brand : </td>
