@@ -40,7 +40,7 @@ public class CarController {
     public String approvecar(@ModelAttribute("car")Car car, Model model){
         model.addAttribute("brandList", carService.getBrands());
         car.setAvailable(true);
-        car.setStatus("PENDING");
+        car.setStatus("ACTIVE");
         return "carform";
     }
 
@@ -80,16 +80,28 @@ public class CarController {
         return "careditform";
     }
 
-    @RequestMapping(value="/editsave", method = RequestMethod.POST)
-    public String editSave(@Valid @ModelAttribute("car")Car car, BindingResult result){
+    @RequestMapping(value="/editcar/editsave", method = RequestMethod.POST)
+    public String editSave(@Valid @ModelAttribute("car")Car car, BindingResult result, HttpSession session){
         if(result.hasErrors())
-            return "/editcar/{id}";
+            return "careditform";
         //change after session complete * ADMIN can change
         car.setAvailable(true);
         car.setStatus("PENDING");
 
         carService.updateCar(car);
         return "redirect:/viewcar";
+    }
+
+    @RequestMapping(value="/approve/{id}", method = RequestMethod.GET)
+    public String editSave( @ModelAttribute("car")Car car, BindingResult result){
+        if(result.hasErrors())
+            return "careditform";
+        //change after session complete * ADMIN can change
+        car.setAvailable(true);
+        car.setStatus("ACTIVE");
+
+//        carService.updateCar(car);
+        return "viewapprovecar";
     }
 
     @RequestMapping(value="/deletecar/{id}", method = RequestMethod.GET)
